@@ -1,3 +1,3 @@
 # Orion Hotel
 
-Evolution of the <a link="https://github.com/AleandroPresta/hms-frontend">hms-frontend</a> repository
+Evolution of the <a href="https://github.com/AleandroPresta/hms-frontend">hms-frontend</a> repository
