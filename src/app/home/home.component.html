@@ -1,5 +1,14 @@
-<main class="d-flex flex-column justify-content-around align-items-center vh-100">
-    <img src="https://placehold.co/400x400" alt="Hotel" class="img-fluid fade-in rounded-4" style="width: 350px; height: 350px;">
-    <h1 class="text-center my-4 playfair-display-500 fade-in">Welcome to the <span class="violet-text">Orion</span> hotel!</h1>
-    <button class="btn btn-primary fade-in fw-bold py-3 px-5 rounded-5" [routerLink]="'/rooms'">BOOK A ROOM</button>
+<main class="d-flex flex-column justify-content-center align-items-center min-vh-100 position-relative overflow-hidden py-3 py-md-5">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="content-wrapper text-center container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <img src="https://image.lexica.art/full_webp/a1bf6a86-9ce4-41a3-a5f2-a35a3cd14d91" alt="Orion Hotel" class="img-fluid fade-in rounded-circle mb-3 mb-md-4 hotel-image">
+        <h1 class="text-center my-2 my-md-4 playfair-display-700 fade-in text-light">Welcome to the <span class="violet-text">Orion</span> Hotel</h1>
+        <p class="lead mb-3 mb-md-5 fade-in text-light playfair-display-400">Experience luxury beyond the stars</p>
+        <button class="btn btn-info fade-in fw-bold py-3 py-md-3 px-5 px-md-5 rounded-pill playfair-display-600" [routerLink]="'/rooms'">BOOK A ROOM</button>
+      </div>
+    </div>
+  </div>
 </main>
