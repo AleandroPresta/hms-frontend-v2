@@ -10,5 +10,11 @@ $danger: #f05454; // Light Red
 $light: #f5f5f5; // Light Gray
 $dark: #0d0d0d; // Almost Black
 
+$violet: #8a2be2;
+
+.violet-text {
+  color: $violet;
+}
+
 // Import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
