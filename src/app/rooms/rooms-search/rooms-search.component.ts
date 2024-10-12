@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class RoomsSearchComponent {
 
+  onSubmit() {
+    console.log('Search submitted');
+    // Here you would typically call a service to perform the search
+  }
+
 }

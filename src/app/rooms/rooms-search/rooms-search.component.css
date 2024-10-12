@@ -1,0 +1,70 @@
+:host {
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --success: #0f3460;
+  --info: #e94560;
+  --warning: #ffcc29;
+  --danger: #f05454;
+  --light: #f5f5f5;
+  --dark: #0d0d0d;
+  --violet: #8a2be2;
+}
+
+.search-container {
+  background-color: var(--secondary);
+  padding: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+.search-title {
+  font-family: "Playfair Display", serif;
+  color: var(--light);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.search-subtitle {
+  font-family: "Playfair Display", serif;
+  color: var(--info);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  background-color: var(--light);
+  border: none;
+  color: var(--dark);
+  margin-bottom: 10px;
+  padding-left: 35px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(233, 69, 96, 0.25);
+}
+
+.btn-search {
+  background-color: var(--info);
+  border: none;
+  color: var(--light);
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.btn-search:hover {
+  background-color: var(--danger);
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary);
+}
+
+.position-relative {
+  position: relative;
+}
