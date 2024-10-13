@@ -3,13 +3,13 @@
   <p class="search-subtitle playfair-display-400 color-info">Search the right room for you...</p>
   <form (ngSubmit)="onSubmit()">
     <div class="mb-3 position-relative">
-      <input type="text" class="form-control background-color-light color-dark" placeholder="Room name" name="destination">
+      <input type="text" class="form-control background-color-light color-dark" placeholder="Room name" name="room-name">
     </div>
     <div class="mb-3 position-relative">
-      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-in date" name="dates">
+      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-in date" name="check-in-date" [min]="minDate">
     </div>
     <div class="mb-3 position-relative">
-      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-out date" name="guests">
+      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-out date" name="check-out-date" [min]="minDate">
     </div>
     <button type="submit" class="btn btn-search">Search</button>
   </form>
