@@ -9,11 +9,38 @@ $warning: #ffcc29; // Yellow
 $danger: #f05454; // Light Red
 $light: #f5f5f5; // Light Gray
 $dark: #0d0d0d; // Almost Black
-
 $violet: #8a2be2;
 
-.violet-text {
+.background-color-primary {
+  background-color: $primary;
+}
+
+.background-color-secondary {
+  background-color: $secondary;
+}
+
+.background-color-light {
+  background-color: $light;
+}
+
+.background-color-info {
+  background-color: $info;
+}
+
+.color-light {
+  color: $light;
+}
+
+.color-info {
+  color: $info;
+}
+
+.color-violet {
   color: $violet;
+}
+
+.color-dark {
+  color: $dark;
 }
 
 // Import Bootstrap
