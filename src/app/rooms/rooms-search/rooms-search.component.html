@@ -5,8 +5,8 @@
   <p class="search-subtitle playfair-display-400 color-info">
     Search the right room for you...
   </p>
-  <form (ngSubmit)="onSubmit()" #roomsSearchForm="ngForm">
-    <div class="mb-3 position-relative">
+  <form (ngSubmit)="onSubmit()" #roomsSearchForm="ngForm" class="d-flex flex-column flex-lg-row">
+    <div class="mb-3 mr-lg-3">
       <input
         required
         type="date"
@@ -18,7 +18,7 @@
         [max]="maxDate | date:'yyyy-MM-dd'"
       />
     </div>
-    <div class="mb-3 position-relative">
+    <div class="mb-3 mx-lg-3">
       <input
         required
         type="date"
