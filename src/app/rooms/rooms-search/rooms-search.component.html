@@ -1,15 +1,15 @@
-<div class="search-container">
-  <h1 class="search-title">Find your next stay</h1>
-  <p class="search-subtitle">Search the right room for you...</p>
+<div class="search-container background-color-secondary">
+  <h1 class="search-title playfair-display-700 color-light">Find your next stay</h1>
+  <p class="search-subtitle playfair-display-400 color-info">Search the right room for you...</p>
   <form (ngSubmit)="onSubmit()">
     <div class="mb-3 position-relative">
-      <input type="text" class="form-control" placeholder="Room name" name="destination">
+      <input type="text" class="form-control background-color-light color-dark" placeholder="Room name" name="destination">
     </div>
     <div class="mb-3 position-relative">
-      <input type="date" class="form-control" placeholder="Check-in date" name="dates">
+      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-in date" name="dates">
     </div>
     <div class="mb-3 position-relative">
-      <input type="date" class="form-control" placeholder="Check-out date" name="guests">
+      <input type="date" class="form-control background-color-light color-dark" placeholder="Check-out date" name="guests">
     </div>
     <button type="submit" class="btn btn-search">Search</button>
   </form>
