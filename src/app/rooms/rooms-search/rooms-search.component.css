@@ -34,7 +34,6 @@
   background-color: var(--info);
   border: none;
   color: var(--light);
-  width: 100%;
   padding: 10px;
   font-weight: bold;
 }
@@ -53,4 +52,13 @@
 
 .position-relative {
   position: relative;
+}
+
+/* Media query for larger viewports */
+@media (min-width: 992px) {
+  .btn-search {
+    height: 50px; /* Increase height */
+    padding: 0px 50px; /* Increase padding */
+    font-size: 20px; /* Increase font size */
+  }
 }
