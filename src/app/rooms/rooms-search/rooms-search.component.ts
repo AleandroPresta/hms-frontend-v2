@@ -39,9 +39,6 @@ export class RoomsSearchComponent implements OnInit {
     ]
   }
 
-  checkInSelected: boolean = false;
-  checkOutSelected: boolean = false;
-
   ngOnInit() {
     this.setMinMaxDates();
   }
@@ -54,7 +51,6 @@ export class RoomsSearchComponent implements OnInit {
   }
 
   onCheckInDateChange(event: any) {
-    this.checkInSelected = true;
     const selectedDate = new Date(event);
 
     /*
@@ -71,24 +67,26 @@ export class RoomsSearchComponent implements OnInit {
     If check-out date is less than check-in date, set it to tomorrow of check-in date.
     This is to prevent users from selecting invalid date ranges.
     */
-    if (this.checkOutSelected && this.searchedRoom.bookings[0].endDate <= this.searchedRoom.bookings[0].startDate) {
+    if (this.searchedRoom.bookings[0].endDate <= this.searchedRoom.bookings[0].startDate) {
       this.searchedRoom.bookings[0].endDate = new Date(this.searchedRoom.bookings[0].startDate);
       this.searchedRoom.bookings[0].endDate.setDate(this.searchedRoom.bookings[0].endDate.getDate() + 1);
     }
   }
 
   onCheckOutDateChange(event: any) {
-    this.checkOutSelected = true;
     this.searchedRoom.bookings[0].endDate = new Date(event);
   }
 
   isCheckOutDateValid(): boolean {
-    return this.checkInSelected && this.checkOutSelected &&
-      this.searchedRoom.bookings[0].endDate > this.searchedRoom.bookings[0].startDate;
+    // Print exactly why the date range is invalid
+    if (this.searchedRoom.bookings[0].endDate <= this.searchedRoom.bookings[0].startDate) {
+      return false;
+    }
+    return true;
   }
 
   showCheckOutDateError(): boolean {
-    return this.checkInSelected && this.checkOutSelected && !this.isCheckOutDateValid();
+    return !this.isCheckOutDateValid();
   }
 
   onSubmit() {
