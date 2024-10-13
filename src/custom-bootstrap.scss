@@ -16,5 +16,17 @@ $violet: #8a2be2;
   color: $violet;
 }
 
+.background-secondary {
+  background-color: $secondary;
+}
+
+.color-light {
+  color: $light;
+}
+
+.color-info {
+  color: $info;
+}
+
 // Import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
