@@ -27,9 +27,6 @@
 }
 
 .form-control {
-  background-color: var(--light);
-  border: none;
-  color: var(--dark);
   margin-bottom: 10px;
   padding-left: 35px;
 }

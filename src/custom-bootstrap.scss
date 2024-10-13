@@ -12,12 +12,16 @@ $dark: #0d0d0d; // Almost Black
 
 $violet: #8a2be2;
 
-.violet-text {
-  color: $violet;
+.background-color-secondary {
+  background-color: $secondary;
 }
 
-.background-secondary {
-  background-color: $secondary;
+.background-color-light {
+  background-color: $light;
+}
+
+.background-color-info {
+  background-color: $info;
 }
 
 .color-light {
@@ -26,6 +30,14 @@ $violet: #8a2be2;
 
 .color-info {
   color: $info;
+}
+
+.color-violet {
+  color: $violet;
+}
+
+.color-dark {
+  color: $dark;
 }
 
 // Import Bootstrap
