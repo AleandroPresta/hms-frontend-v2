@@ -22,7 +22,7 @@ export class RoomPreviewComponent {
     features: [],
     bookings: [],
     price: 0,
-    rating: 0
+    rating: 1
   };
 
   constructor() { }

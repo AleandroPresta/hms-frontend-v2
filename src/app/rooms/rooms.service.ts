@@ -32,7 +32,7 @@ export class RoomsService {
           endDate: new Date('2023-10-15T11:00:00')
         }
       ],
-      price: 300,
+      price: 200,
       rating: 4.3
     },
     {
@@ -59,7 +59,7 @@ export class RoomsService {
         }
       ],
       price: 300,
-      rating: 4.5
+      rating: 4.2
     },
     {
       id: 1,
@@ -85,13 +85,13 @@ export class RoomsService {
         }
       ],
       price: 300,
-      rating: 4.5
+      rating: 5
     },
     {
       id: 1,
       name: 'Andromeda Suite',
       type: 'Suite',
-      capacity: 4,
+      capacity: 3,
       location: 'Galaxy Wing',
       images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
       size: 100,
@@ -111,7 +111,7 @@ export class RoomsService {
         }
       ],
       price: 300,
-      rating: 4.5
+      rating: 1
     }
 
   ];
