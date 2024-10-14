@@ -9,3 +9,11 @@
 .vh-80 {
     height: 80vh;
 }
+
+@media (min-width: 768px) {
+    .custom-img {
+        width: 200px; /* Or whatever fixed width you want */
+        height: 200px; /* Or whatever fixed height you want */
+        object-fit: cover; /* This ensures the image covers the area without distortion */
+    }
+}

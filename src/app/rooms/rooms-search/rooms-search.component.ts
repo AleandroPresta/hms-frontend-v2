@@ -36,7 +36,9 @@ export class RoomsSearchComponent implements OnInit {
         // Set endDate to tomorrow of startDate
         endDate: new Date(new Date().setDate(new Date().getDate() + 1))
       }
-    ]
+    ],
+    price: 0,
+    rating: 0
   }
 
   ngOnInit() {

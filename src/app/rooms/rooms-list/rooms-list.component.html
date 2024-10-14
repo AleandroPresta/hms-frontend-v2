@@ -1,5 +1,9 @@
 <div class="container-fluid background-color-secondary">
     <div class="container background-color-light rounded">
-        <app-room-preview *ngFor="let room of roomList" [room]="room"></app-room-preview>
+        <div class="row">
+            <div class="col-12 col-lg-6" *ngFor="let room of roomList">
+                <app-room-preview [room]="room" class="m-2"></app-room-preview>
+            </div>
+        </div>
     </div>
 </div>

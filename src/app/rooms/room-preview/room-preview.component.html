@@ -1,1 +1,11 @@
-<p>{{room.name}}</p>
+<div class="card">
+    <div class="d-flex flex-column flex-md-row">
+        <img [src]="room.images[0]" alt="room image" class="img-fluid custom-img rounded-1">
+        <div class="card-body">
+            <p>{{room.name}}</p>
+            <p>{{room.rating}}</p>
+            <p>{{room.capacity}} Guests</p>
+            <app-rating [rating]="room.rating" [maxRating]="5"></app-rating>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Room } from '../Room';
+import { RatingComponent } from '../../rating/rating.component';
 
 @Component({
   selector: 'app-room-preview',
   standalone: true,
-  imports: [],
+  imports: [RatingComponent],
   templateUrl: './room-preview.component.html',
   styleUrl: './room-preview.component.css'
 })
@@ -19,11 +20,11 @@ export class RoomPreviewComponent {
     images: [],
     size: 0,
     features: [],
-    bookings: []
+    bookings: [],
+    price: 0,
+    rating: 0
   };
 
-  constructor() {
-    console.log(this.room);
-  }
+  constructor() { }
 
 }
