@@ -8,6 +8,8 @@ export interface Room {
     size: number;
     features: string[];
     bookings: Booking[];  // Full booking data stored internally
+    price: number;
+    rating: number;
 }
 
 export interface Booking {
