@@ -61,4 +61,8 @@
         padding: 0px 50px; /* Increase padding */
         font-size: 20px; /* Increase font size */
     }
+
+    .search-container {
+        max-width: 1000px;
+    }
 }

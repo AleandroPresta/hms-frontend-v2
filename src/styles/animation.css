@@ -34,3 +34,15 @@
 .fade-in:nth-child(4) {
     animation-delay: 2s;
 }
+
+.fade-in:nth-child(5) {
+    animation-delay: 2.5s;
+}
+
+.fade-in:nth-child(6) {
+    animation-delay: 3s;
+}
+
+.fade-in:nth-child(7) {
+    animation-delay: 3.5s;
+}
