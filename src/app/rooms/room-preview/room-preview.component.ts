@@ -1,11 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { Room } from '../Room';
-import { RatingComponent } from '../../rating/rating.component';
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-room-preview',
   standalone: true,
-  imports: [RatingComponent],
+  imports: [
+    RatingModule,
+    FormsModule
+  ],
   templateUrl: './room-preview.component.html',
   styleUrl: './room-preview.component.css'
 })
