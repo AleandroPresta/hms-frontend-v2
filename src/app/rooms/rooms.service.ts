@@ -15,7 +15,7 @@ export class RoomsService {
       type: 'Suite',
       capacity: 4,
       location: 'Galaxy Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/andromeda/800/600'],
       size: 100,
       features: ['King Bed', 'Galaxy View', 'Mini Bar'],
       bookings: [
@@ -41,7 +41,7 @@ export class RoomsService {
       type: 'Deluxe Room',
       capacity: 2,
       location: 'Orion Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/nebula/800/600'],
       size: 80,
       features: ['Queen Bed', 'Nebula View', 'Personal AI Assistant'],
       bookings: [
@@ -61,7 +61,7 @@ export class RoomsService {
       type: 'Suite',
       capacity: 5,
       location: 'Celestial Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/cosmic/800/600'],
       size: 120,
       features: ['Two King Beds', '360° Space View', 'Holographic Entertainment System'],
       bookings: [
@@ -81,7 +81,7 @@ export class RoomsService {
       type: 'Standard Room',
       capacity: 2,
       location: 'Lunar Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/starlight/800/600'],
       size: 60,
       features: ['Double Bed', 'Moon View', 'Free Wi-Fi'],
       bookings: [
@@ -101,7 +101,7 @@ export class RoomsService {
       type: 'Suite',
       capacity: 3,
       location: 'Stellar Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/quasar/800/600'],
       size: 110,
       features: ['King Bed', 'Quasar View', 'Personal Robot Butler'],
       bookings: [
@@ -121,7 +121,7 @@ export class RoomsService {
       type: 'Economy Room',
       capacity: 1,
       location: 'Asteroid Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/meteorite/800/600'],
       size: 40,
       features: ['Single Bed', 'Meteor Shower View', 'Basic Amenities'],
       bookings: [
@@ -141,7 +141,7 @@ export class RoomsService {
       type: 'Deluxe Room',
       capacity: 2,
       location: 'Comet Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/comet/800/600'],
       size: 85,
       features: ['Queen Bed', 'Comet View', 'Advanced Climate Control'],
       bookings: [
@@ -161,7 +161,7 @@ export class RoomsService {
       type: 'Suite',
       capacity: 4,
       location: 'Supernova Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/nova/800/600'],
       size: 130,
       features: ['King Bed', 'Supernova View', 'Luxury Spa'],
       bookings: [
@@ -181,7 +181,7 @@ export class RoomsService {
       type: 'Standard Room',
       capacity: 2,
       location: 'Event Horizon Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/blackhole/800/600'],
       size: 75,
       features: ['Double Bed', 'Black Hole Simulation Window', 'Gravity Control'],
       bookings: [
@@ -201,7 +201,7 @@ export class RoomsService {
       type: 'Penthouse',
       capacity: 6,
       location: 'Pulsar Wing',
-      images: ['https://as1.ftcdn.net/v2/jpg/07/18/34/12/1000_F_718341271_Tj7ogv19OUVfpBmRKMhUv6buRrOTx0L6.jpg'],
+      images: ['https://picsum.photos/seed/pulsar/800/600'],
       size: 150,
       features: ['Three King Beds', 'Pulsar View', 'Private Gym'],
       bookings: [

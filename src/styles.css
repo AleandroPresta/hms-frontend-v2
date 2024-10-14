@@ -2,6 +2,10 @@
 @import "./styles/typography.css";
 @import "./styles/animation.css";
 
+body {
+    background-color: #16213e;
+}
+
 .vh-90 {
     height: 90vh;
 }
