@@ -1,38 +1,40 @@
-<div class="search-container background-color-secondary">
-  <h1 class="search-title playfair-display-700 color-light">
-    Find your next stay
-  </h1>
-  <p class="search-subtitle playfair-display-400 color-info">
-    Search the right room for you...
-  </p>
-  <form (ngSubmit)="onSubmit()" #roomsSearchForm="ngForm">
-    <div class="mb-3 position-relative">
-      <input
-        required
-        type="date"
-        class="form-control background-color-light color-dark"
-        name="check-in-date"
-        [ngModel]="searchedRoom.bookings[0].startDate | date:'yyyy-MM-dd'"
-        (ngModelChange)="onCheckInDateChange($event)"
-        [min]="minDate | date:'yyyy-MM-dd'"
-        [max]="maxDate | date:'yyyy-MM-dd'"
-      />
-    </div>
-    <div class="mb-3 position-relative">
-      <input
-        required
-        type="date"
-        class="form-control background-color-light color-dark"
-        name="check-out-date"
-        [ngModel]="searchedRoom.bookings[0].endDate | date:'yyyy-MM-dd'"
-        (ngModelChange)="onCheckOutDateChange($event)"
-        [min]="searchedRoom.bookings[0].startDate | date:'yyyy-MM-dd'"
-        [max]="maxDate | date:'yyyy-MM-dd'"
-      />
-    </div>
-    <div *ngIf="showCheckOutDateError()" class="alert alert-danger">
-      Check-out date must be after check-in date.
-    </div>
-    <button type="submit" class="btn btn-search" [disabled]="roomsSearchForm.invalid || !isCheckOutDateValid()">Search</button>
-  </form>
+<div class="d-flex justify-content-center align-items-center vh-80">
+  <div class="search-container background-color-secondary">
+    <h1 class="search-title playfair-display-700 color-light fade-in">
+      Find your next stay
+    </h1>
+    <p class="search-subtitle playfair-display-400 color-info fade-in">
+      Search the right room for you...
+    </p>
+    <form (ngSubmit)="onSubmit()" #roomsSearchForm="ngForm" class="d-flex flex-column flex-lg-row fade-in">
+      <div class="mb-3 mr-lg-3">
+        <input
+          required
+          type="date"
+          class="form-control background-color-light color-dark"
+          name="check-in-date"
+          [ngModel]="searchedRoom.bookings[0].startDate | date:'yyyy-MM-dd'"
+          (ngModelChange)="onCheckInDateChange($event)"
+          [min]="minDate | date:'yyyy-MM-dd'"
+          [max]="maxDate | date:'yyyy-MM-dd'"
+        />
+      </div>
+      <div class="mb-3 mx-lg-3">
+        <input
+          required
+          type="date"
+          class="form-control background-color-light color-dark"
+          name="check-out-date"
+          [ngModel]="searchedRoom.bookings[0].endDate | date:'yyyy-MM-dd'"
+          (ngModelChange)="onCheckOutDateChange($event)"
+          [min]="searchedRoom.bookings[0].startDate | date:'yyyy-MM-dd'"
+          [max]="maxDate | date:'yyyy-MM-dd'"
+        />
+      </div>
+      <div *ngIf="showCheckOutDateError()" class="alert alert-danger">
+        Check-out date must be after check-in date.
+      </div>
+      <button type="submit" class="btn btn-search fw-bold playfair-display-600" [disabled]="roomsSearchForm.invalid || !isCheckOutDateValid()">SEARCH</button>
+    </form>
+  </div>
 </div>
