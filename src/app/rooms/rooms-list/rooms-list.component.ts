@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Room, Booking } from '../Room';
 import { RoomsSearchComponent } from '../rooms-search/rooms-search.component';
 import { RoomPreviewComponent } from "../room-preview/room-preview.component";
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-rooms-list',
@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
   imports: [
     RoomsSearchComponent,
     RoomPreviewComponent,
-    NgFor
+    NgFor, NgClass
   ],
   templateUrl: './rooms-list.component.html',
   styleUrl: './rooms-list.component.css'

@@ -3,7 +3,7 @@ import { Room } from '../Room';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-room-preview',
@@ -19,6 +19,7 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons';
 export class RoomPreviewComponent {
 
   faUsers = faUsers;
+  faRulerCombined = faRulerCombined;
 
   @Input() room: Room = {
     id: 0,
