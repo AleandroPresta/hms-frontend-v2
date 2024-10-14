@@ -2,18 +2,23 @@ import { Component, Input } from '@angular/core';
 import { Room } from '../Room';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-room-preview',
   standalone: true,
   imports: [
     RatingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   templateUrl: './room-preview.component.html',
   styleUrl: './room-preview.component.css'
 })
 export class RoomPreviewComponent {
+
+  faUsers = faUsers;
 
   @Input() room: Room = {
     id: 0,
