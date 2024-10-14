@@ -1,6 +1,7 @@
 .rating {
     display: inline-flex;
 }
+
 .star-container {
     width: 24px;
     height: 24px;

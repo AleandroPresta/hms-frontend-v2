@@ -33,7 +33,7 @@ export class RoomsService {
         }
       ],
       price: 300,
-      rating: 4.5
+      rating: 4.3
     },
     {
       id: 1,

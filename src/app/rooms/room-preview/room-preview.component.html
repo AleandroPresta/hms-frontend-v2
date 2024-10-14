@@ -3,9 +3,9 @@
         <img [src]="room.images[0]" alt="room image" class="img-fluid custom-img rounded-1">
         <div class="card-body">
             <p>{{room.name}}</p>
-            <p>{{room.rating}}</p>
-            <p>{{room.capacity}} Guests</p>
             <app-rating [rating]="room.rating" [maxRating]="5"></app-rating>
+            <p>{{room.capacity}} Guests</p>
+            <p>€{{room.price}}</p>
         </div>
     </div>
 </div>
