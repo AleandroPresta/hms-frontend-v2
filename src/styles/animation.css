@@ -1,8 +1,8 @@
-.image-hover-animation {
+.zoom-hover {
     transition: transform 0.3s ease;
 }
 
-.image-hover-animation:hover {
+.zoom-hover:hover {
     transform: scale(1.05);
 }
 
