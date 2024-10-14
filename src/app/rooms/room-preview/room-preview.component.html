@@ -3,11 +3,14 @@
         <img [src]="room.images[0]" alt="room image" class="img-fluid custom-img rounded-1 align-self-center mx-2">
         <span class="badge text-bg-light position-absolute top-0 start-0 m-3">{{room.type}}</span>
         <div class="card-body">
-            <div class="d-flex flex-column flex-xl-row gap-xl-3 gap-xxl-5">
+            <div class="d-flex flex-column flex-xl-row justify-content-between">
                 <p class="room-title color-info playfair-display-700">{{room.name}}</p>
                 <p-rating [(ngModel)]="room.rating" [readonly]="true" [cancel]="false"></p-rating>
             </div>
-            <p class="room-details mt-1"><fa-icon [icon]="faUsers"></fa-icon> {{room.capacity}} Guests</p>
+            <div class="d-flex justify-content-start gap-3">
+                <p class="room-details mt-1"><fa-icon [icon]="faUsers"></fa-icon> {{room.capacity}} Guests</p>
+                <p class="room-details mt-1"><fa-icon [icon]="faRulerCombined"></fa-icon> {{room.size}} m^2</p>
+            </div>
             <p class="room-price">€{{room.price}}</p>
         </div>
     </div>
