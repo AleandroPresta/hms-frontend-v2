@@ -1,1 +1,5 @@
-<p>rooms-list works!</p>
+<div class="container-fluid background-color-secondary">
+    <div class="container background-color-light rounded">
+        <app-room-preview *ngFor="let room of roomList" [room]="room"></app-room-preview>
+    </div>
+</div>
