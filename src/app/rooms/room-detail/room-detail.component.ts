@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../Room';
 import { GalleriaModule } from 'primeng/galleria';
-
-interface GalleriaItem {
-  itemImageSrc: string;
-  thumbnailImageSrc: string;
-}
+import { GalleriaComponent } from '../../galleria/galleria.component';
+import { RoomsHeaderComponent } from "../rooms-header/rooms-header.component";
+import { RoomsFooterComponent } from "../rooms-footer/rooms-footer.component";
 
 @Component({
   selector: 'app-room-detail',
   standalone: true,
   imports: [
-    GalleriaModule
+    GalleriaModule,
+    GalleriaComponent,
+    RoomsHeaderComponent,
+    RoomsFooterComponent
   ],
   templateUrl: './room-detail.component.html',
   styleUrl: './room-detail.component.css',
 })
-export class RoomDetailComponent implements OnInit {
+export class RoomDetailComponent {
   constructor() { }
 
   room: Room = {
@@ -49,19 +50,4 @@ export class RoomDetailComponent implements OnInit {
     rating: 5,
   };
 
-  galleryImages: GalleriaItem[] = [];
-
-  ngOnInit(): void {
-    this.galleryImages = this.room.images.map(
-      (imageUrl) => ({
-        itemImageSrc: imageUrl,
-        thumbnailImageSrc: imageUrl,
-      })
-    );
-  }
-
-  onActiveIndexChange(index: number) {
-    console.log('Active image changed:', this.galleryImages[index]);
-    // You can perform any action here when the active index changes
-  }
 }
