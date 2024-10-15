@@ -5,12 +5,29 @@
     </div>
     <div class="container">
         <h2 class="playfair-display-700 text-info">{{ room.name }}</h2>
-        <p><strong>Capacity:<fa-icon [icon]="faUsers"></fa-icon> </strong> {{ room.capacity }} Guests</p>
-        <p><strong>Size:</strong> <fa-icon [icon]="faRulerCombined"></fa-icon> {{ room.size }} m²</p>
-        <h3>Features:</h3>
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-light table-borderless"
+            >
+                <tbody>
+                    <tr class="">
+                        <td scope="row"><p class="playfair-display-400"><strong>Capacity:</strong></p></td>
+                        <td><p class="playfair-display-500"> <fa-icon [icon]="faUsers"></fa-icon> {{ room.capacity }} Guests</p></td>
+                    </tr>
+                    <tr class="">
+                        <td scope="row"><p class="playfair-display-400"><strong>Size:</strong></p></td>
+                        <td><p class="playfair-display-500"> <fa-icon [icon]="faRulerCombined"></fa-icon> {{ room.size }} m²</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h3 class="playfair-display-600">Features:</h3>
         <p>{{ room.features.join(', ') }}</p>
-        <p><strong>Rating:</strong> {{ room.rating }} Stars</p>
-        <p><strong>Price:</strong> €{{ room.price }}</p>
+        <p class="playfair-display-400"><strong>Rating:</strong> {{ room.rating }} Stars</p>
+        <h2 class="playfair-display-700">€{{ room.price }}</h2>
     </div>
 </main>
 <app-rooms-footer></app-rooms-footer>
