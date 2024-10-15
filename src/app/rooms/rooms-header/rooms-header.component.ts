@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,7 +7,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-rooms-header',
   standalone: true,
   imports: [
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterLink
   ],
   templateUrl: './rooms-header.component.html',
   styleUrl: './rooms-header.component.css'

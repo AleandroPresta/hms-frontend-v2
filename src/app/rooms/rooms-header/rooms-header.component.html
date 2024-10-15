@@ -3,7 +3,7 @@
   data-bs-theme="dark"
 >
   <div class="container-fluid">
-    <a class="navbar-brand color-light raise-hover" href="#"
+    <a class="navbar-brand color-light raise-hover" [routerLink]="'/rooms'"
       >Orion Hotel</a
     >
     <div class="d-flex">
@@ -30,10 +30,19 @@
           </a>
         </li>
         <li class="nav-item raise-hover">
-          <a class="nav-link color-light" href="#">Home</a>
+          <a class="nav-link color-light" [routerLink]="'/rooms'">Home</a>
         </li>
         <li class="nav-item raise-hover">
-          <a class="nav-link color-light" href="#">Options</a>
+          <a class="nav-link color-light" href="#">Features</a>
+        </li>
+        <li class="nav-item raise-hover">
+          <a class="nav-link color-light" href="#">Pricing</a>
+        </li>
+        <li class="nav-item raise-hover">
+          <a class="nav-link color-light" href="#">FAQs</a>
+        </li>
+        <li class="nav-item raise-hover">
+          <a class="nav-link color-light" href="#">About</a>
         </li>
       </ul>
     </div>
