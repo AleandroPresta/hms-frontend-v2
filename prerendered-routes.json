@@ -2,6 +2,7 @@
   "routes": [
     "/",
     "/home",
-    "/rooms"
+    "/rooms",
+    "/rooms/1"
   ]
 }
