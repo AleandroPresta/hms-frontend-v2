@@ -1,10 +1,16 @@
 <app-rooms-header></app-rooms-header>
 <main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row">
     <div class="container m-0 p-0 d-flex justify-content-center">
-            <app-galleria [images]="room.images"></app-galleria>
+        <app-galleria [images]="room.images"></app-galleria>
     </div>
     <div class="container">
-        <p>Bla bla bla</p>
+        <h2 class="playfair-display-700 text-info">{{ room.name }}</h2>
+        <p><strong>Capacity:<fa-icon [icon]="faUsers"></fa-icon> </strong> {{ room.capacity }} Guests</p>
+        <p><strong>Size:</strong> <fa-icon [icon]="faRulerCombined"></fa-icon> {{ room.size }} m²</p>
+        <h3>Features:</h3>
+        <p>{{ room.features.join(', ') }}</p>
+        <p><strong>Rating:</strong> {{ room.rating }} Stars</p>
+        <p><strong>Price:</strong> €{{ room.price }}</p>
     </div>
 </main>
 <app-rooms-footer></app-rooms-footer>

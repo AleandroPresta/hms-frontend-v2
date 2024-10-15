@@ -4,6 +4,10 @@ import { GalleriaModule } from 'primeng/galleria';
 import { GalleriaComponent } from '../../galleria/galleria.component';
 import { RoomsHeaderComponent } from "../rooms-header/rooms-header.component";
 import { RoomsFooterComponent } from "../rooms-footer/rooms-footer.component";
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUsers, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-room-detail',
@@ -12,7 +16,10 @@ import { RoomsFooterComponent } from "../rooms-footer/rooms-footer.component";
     GalleriaModule,
     GalleriaComponent,
     RoomsHeaderComponent,
-    RoomsFooterComponent
+    RoomsFooterComponent,
+    RatingModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   templateUrl: './room-detail.component.html',
   styleUrl: './room-detail.component.css',
@@ -49,5 +56,8 @@ export class RoomDetailComponent {
     price: 450,
     rating: 5,
   };
+
+  faUsers = faUsers;
+  faRulerCombined = faRulerCombined;
 
 }
