@@ -1,6 +1,6 @@
 <app-rooms-header></app-rooms-header>
 <main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row">
-    <div class="container m-0 p-0 d-flex justify-content-center">
+    <div class="container-fluid m-0 p-0">
         <app-galleria [images]="room.images"></app-galleria>
     </div>
     <div class="container">
@@ -25,7 +25,9 @@
         </div>
         
         <h3 class="playfair-display-600">Features:</h3>
-        <p>{{ room.features.join(', ') }}</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <h5><span *ngFor="let feature of room.features" class="badge rounded-pill text-bg-success">{{feature}}</span></h5>
+        </div>
         <p class="playfair-display-400"><strong>Rating:</strong> {{ room.rating }} Stars</p>
         <h2 class="playfair-display-700">€{{ room.price }}</h2>
     </div>

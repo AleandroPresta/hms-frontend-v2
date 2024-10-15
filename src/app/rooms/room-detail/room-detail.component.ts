@@ -8,6 +8,7 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUsers, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-room-detail',
@@ -19,7 +20,8 @@ import { faUsers, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
     RoomsFooterComponent,
     RatingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgFor
   ],
   templateUrl: './room-detail.component.html',
   styleUrl: './room-detail.component.css',
