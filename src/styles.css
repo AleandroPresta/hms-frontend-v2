@@ -21,3 +21,13 @@ body {
         object-fit: cover; /* This ensures the image covers the area without distortion */
     }
 }
+
+.w-lg-50 {
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .w-lg-50 {
+        width: 50%;
+    }
+}
