@@ -1,9 +1,9 @@
 <app-rooms-header></app-rooms-header>
 <main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row">
-    <div class="container-fluid m-0 p-0">
+    <div class="container-fluid m-0 p-0 d-block d-sm-flex justify-content-center justify-content-xl-start">
         <app-galleria [images]="room.images"></app-galleria>
     </div>
-    <div class="container">
+    <div class="container m-2 d-flex flex-column">
         <h2 class="playfair-display-700 text-info">{{ room.name }}</h2>
         <div
             class="table-responsive"
@@ -28,8 +28,11 @@
         <div class="d-flex gap-2 flex-wrap">
             <h5><span *ngFor="let feature of room.features" class="badge rounded-pill text-bg-success">{{feature}}</span></h5>
         </div>
-        <p class="playfair-display-400"><strong>Rating:</strong> {{ room.rating }} Stars</p>
-        <h2 class="playfair-display-700">€{{ room.price }}</h2>
+        <div class="d-flex gap-1">
+            <p class="playfair-display-400"><strong>Rating:</strong></p>
+            <p-rating [(ngModel)]="room.rating" [readonly]="true" [cancel]="false" class="my-1"></p-rating>
+        </div>      
+        <h2 class="playfair-display-700 align-self-center">€{{ room.price }}</h2>
     </div>
 </main>
 <app-rooms-footer></app-rooms-footer>

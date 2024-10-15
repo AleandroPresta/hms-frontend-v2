@@ -56,7 +56,7 @@ export class RoomDetailComponent {
       },
     ],
     price: 450,
-    rating: 5,
+    rating: 4.2,
   };
 
   faUsers = faUsers;
