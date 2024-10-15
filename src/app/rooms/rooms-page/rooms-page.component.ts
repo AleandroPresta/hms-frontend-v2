@@ -4,7 +4,7 @@ import { RoomsSearchComponent } from "../rooms-search/rooms-search.component";
 import { RoomsListComponent } from '../rooms-list/rooms-list.component';
 import { Room } from '../Room';
 import { RoomsService } from '../rooms.service';
-import { RoomsFooterComponent } from '../../rooms-footer/rooms-footer.component';
+import { RoomsFooterComponent } from '../rooms-footer/rooms-footer.component';
 
 @Component({
   selector: 'app-rooms-page',
