@@ -2,7 +2,9 @@
     <div class="container background-color-light rounded">
         <div class="row">
             <div class="col-12 col-lg-6" *ngFor="let room of roomList; let i = index">
-                <app-room-preview [room]="room" class="m-2" [ngClass]="{'scroll-reveal-down': i > 1}"></app-room-preview>
+                <a class="text-decoration-none" [routerLink]="['/rooms', 1]"> <!-- Mocks the room:id route (TODO: Implement dynamic routing) -->
+                    <app-room-preview [room]="room" class="m-2" [ngClass]="{'scroll-reveal-down': i > 1}"></app-room-preview>
+                </a>
             </div>
         </div>
     </div>

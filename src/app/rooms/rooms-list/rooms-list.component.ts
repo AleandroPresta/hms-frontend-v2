@@ -3,6 +3,7 @@ import { Room, Booking } from '../Room';
 import { RoomsSearchComponent } from '../rooms-search/rooms-search.component';
 import { RoomPreviewComponent } from "../room-preview/room-preview.component";
 import { NgClass, NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-rooms-list',
@@ -10,7 +11,8 @@ import { NgClass, NgFor } from '@angular/common';
   imports: [
     RoomsSearchComponent,
     RoomPreviewComponent,
-    NgFor, NgClass
+    NgFor, NgClass,
+    RouterLink
   ],
   templateUrl: './rooms-list.component.html',
   styleUrl: './rooms-list.component.css'
