@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { User } from './User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  mockUsers: User[] = [
+  mockUsers = [
     {
       firstName: "John",
       lastName: "Doe",
@@ -35,12 +34,12 @@ export class AuthService {
     }
   }
 
-  registerUser(data: User) {
+  registerUser(data: any) {
     console.log('registerUser');
     this.mockUsers.push(data);
   }
 
-  loginUser(data: User) {
+  loginUser(data: any) {
     console.log('loginUser');
     for (let user of this.mockUsers) {
       if (user.username == data.username && user.password == data.password) {

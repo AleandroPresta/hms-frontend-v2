@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     NgClass,
-    NgIf
   ],
   templateUrl: './auth-forms.component.html',
   styleUrl: './auth-forms.component.css'
