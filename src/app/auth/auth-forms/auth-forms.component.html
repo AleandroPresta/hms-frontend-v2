@@ -1,14 +1,14 @@
-<div [ngClass]="active == 'login' ? 'd-block' : 'd-none'">
+<div class="p-4" [ngClass]="active == 'login' ? 'd-block' : 'd-none'">
     <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
-        <div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="loginUsername" placeholder="Username" [(ngModel)]="username">
             <label for="loginUsername">Username</label>
-            <input type="text" id="loginUsername" name="username" [(ngModel)]="username">
         </div>
-        <div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password" [(ngModel)]="password">
             <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" name="password" [(ngModel)]="password">
         </div>
-        <button type="submit">Submit</button>
+        <button class="btn btn-info text-light" type="submit">Submit</button>
     </form>
 </div>
 

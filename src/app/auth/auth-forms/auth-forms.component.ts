@@ -24,7 +24,9 @@ export class AuthFormsComponent {
   password: string = "";
 
   onSubmitLogin() {
-    this.onSubmitLoginEvent.emit({ "login": this.username, "password": this.password });
+    console.log("onSubmitLogin");
+    console.table({ "login": this.username, "password": this.password });
+    // this.onSubmitLoginEvent.emit({ "login": this.username, "password": this.password });
   }
 
   onSubmitRegister() {
