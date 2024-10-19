@@ -34,8 +34,13 @@ export class ContentComponent {
   }
 
   onLogin(input: any): void {
-    console.log('onLogin');
-    console.table(input);
+    const user = this.authService.loginUser(input);
+    if (user != null) {
+      console.log('onLogin');
+      console.table(user);
+    } else {
+      console.log('Invalid login');
+    }
   }
 
   onRegister(input: any): void {
