@@ -1,35 +1,35 @@
 <div class="p-4" [ngClass]="active == 'login' ? 'd-block' : 'd-none'">
     <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="loginUsername" placeholder="Username" [(ngModel)]="username">
+            <input type="text" class="form-control" id="loginUsername" placeholder="Username" name="username" [(ngModel)]="username">
             <label for="loginUsername">Username</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="loginPassword" placeholder="Password" [(ngModel)]="password">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password" [(ngModel)]="password">
             <label for="loginPassword">Password</label>
         </div>
         <button class="btn btn-info text-light" type="submit">Submit</button>
     </form>
 </div>
 
-<div [ngClass]="active == 'register' ? 'd-block' : 'd-none'">
+<div class="p-4" [ngClass]="active == 'register' ? 'd-block' : 'd-none'">
     <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
-        <div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" [(ngModel)]="firstName">
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName">
         </div>
-        <div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" [(ngModel)]="lastName">
             <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName">
         </div>
-        <div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="registerUsername" placeholder="Username" name="username" [(ngModel)]="username">
             <label for="registerUsername">Username</label>
-            <input type="text" id="registerUsername" name="username" [(ngModel)]="username">
         </div>
-        <div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="registerPassword" placeholder="Password" name="password" [(ngModel)]="password">
             <label for="registerPassword">Password</label>
-            <input type="password" id="registerPassword" name="password" [(ngModel)]="password">
         </div>
-        <button type="submit">Submit</button>
+        <button class="btn btn-info text-light" type="submit">Submit</button>
     </form>
 </div>

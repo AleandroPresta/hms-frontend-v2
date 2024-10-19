@@ -30,7 +30,9 @@ export class AuthFormsComponent {
   }
 
   onSubmitRegister() {
-    this.onSubmitRegisterEvent.emit({ "firstName": this.firstName, "lastName": this.lastName, "login": this.username, "password": this.password });
+    console.log("onSubmitRegister");
+    console.table({ "firstName": this.firstName, "lastName": this.lastName, "login": this.username, "password": this.password });
+    // this.onSubmitRegisterEvent.emit({ "firstName": this.firstName, "lastName": this.lastName, "login": this.username, "password": this.password });
   }
 
   setActive(active: string) {
