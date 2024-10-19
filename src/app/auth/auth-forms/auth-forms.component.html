@@ -1,1 +1,35 @@
-<p>auth-forms works!</p>
+<div [ngClass]="active == 'login' ? 'd-block' : 'd-none'">
+    <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+        <div>
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" name="username" [(ngModel)]="username">
+        </div>
+        <div>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" [(ngModel)]="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div [ngClass]="active == 'register' ? 'd-block' : 'd-none'">
+    <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName">
+        </div>
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName">
+        </div>
+        <div>
+            <label for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" name="username" [(ngModel)]="username">
+        </div>
+        <div>
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" name="password" [(ngModel)]="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
