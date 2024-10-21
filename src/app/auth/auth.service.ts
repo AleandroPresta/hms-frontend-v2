@@ -48,8 +48,25 @@ export class AuthService {
   loginUser(data: any) {
     for (let user of this.mockUsers) {
       if (user.username == data.username && user.password == data.password) {
+        this.setAuthToken(user.username);
         return user;
       }
+    }
+    return null;
+  }
+
+  logoutUser(): void {
+    this.setAuthToken(null);
+  }
+
+  isLoggedIn(): boolean {
+    return this.getAuthToken() !== null;
+  }
+
+  getLoggedInUser(): any {
+    const username = this.getAuthToken();
+    if (username) {
+      return this.mockUsers.find(user => user.username === username);
     }
     return null;
   }

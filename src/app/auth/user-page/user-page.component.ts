@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-page',
@@ -12,5 +12,11 @@ export class UserPageComponent {
   @Input() firstName: string = "";
   @Input() lastName: string = "";
   @Input() username: string = "";
+
+  @Output() logoutEvent = new EventEmitter<void>();
+
+  onLogout(): void {
+    this.logoutEvent.emit();
+  }
 
 }

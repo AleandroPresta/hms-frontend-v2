@@ -35,6 +35,22 @@ export class ContentComponent {
 
   constructor(private authService: AuthService) { }
 
+  ngOnInit(): void {
+    this.checkLoginState();
+  }
+
+  checkLoginState(): void {
+    if (this.authService.isLoggedIn()) {
+      const user = this.authService.getLoggedInUser();
+      if (user) {
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.username = user.username;
+        this.componentToShow = 'user-page';
+      }
+    }
+  }
+
   showComponent(componentToShow: string): void {
     this.componentToShow = componentToShow;
   }
@@ -60,6 +76,14 @@ export class ContentComponent {
       this.userAlreadyExists = true;
       this.componentToShow = 'auth';
     }
+  }
+
+  onLogout(): void {
+    this.authService.logoutUser();
+    this.componentToShow = 'auth';
+    this.firstName = "";
+    this.lastName = "";
+    this.username = "";
   }
 
 }
