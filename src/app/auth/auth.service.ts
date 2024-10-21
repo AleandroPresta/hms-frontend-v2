@@ -34,16 +34,20 @@ export class AuthService {
     }
   }
 
-  registerUser(data: any) {
-    console.log('registerUser');
+  registerUser(data: any): any {
+    // Check if user already exists
+    for (let user of this.mockUsers) {
+      if (user.username == data.username) {
+        return null;
+      }
+    }
     this.mockUsers.push(data);
+    return data;
   }
 
   loginUser(data: any) {
-    console.log('loginUser');
-    console.log(data);
     for (let user of this.mockUsers) {
-      if (user.username == data.login && user.password == data.password) {
+      if (user.username == data.username && user.password == data.password) {
         return user;
       }
     }

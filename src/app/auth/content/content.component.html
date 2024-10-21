@@ -2,7 +2,15 @@
 <div class="container vh-80 vw-100 d-flex justify-content-center align-items-center">
     <app-auth-forms
     (onSubmitLoginEvent)="onLogin($event)"
-    (onSubmitRegisterEvent)="onRegister($event)"></app-auth-forms>
+    (onSubmitRegisterEvent)="onRegister($event)"
+    [incorrectUsernameOrPassword]="incorrectUsernameOrPassword"
+    [userAlreadyExists]="userAlreadyExists"
+    *ngIf="componentToShow == 'auth'"></app-auth-forms>
+    <app-user-page
+    *ngIf="componentToShow == 'user-page'"
+    [firstName]="firstName"
+    [lastName]="lastName"
+    [username]="username"></app-user-page>
 </div>
 <app-rooms-footer></app-rooms-footer>
 <router-outlet></router-outlet>
