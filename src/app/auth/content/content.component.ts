@@ -79,7 +79,10 @@ export class ContentComponent {
     if (user == null) {
       this.userAlreadyExists = true;
       this.componentToShow = 'auth';
+      return;
     }
+    // If the registration is successful, show a success message
+    this.showSuccess('success', 'Registration Successful', 'You have successfully registered!');
   }
 
   onLogout(): void {
