@@ -31,6 +31,9 @@
                     <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password" [(ngModel)]="password">
                     <label for="loginPassword">Password</label>
                 </div>
+                <div class="alert alert-danger" *ngIf="incorrectUsernameOrPassword">
+	                Incorrect username or password
+                </div>
                 <button class="btn btn-info text-light" type="submit">Submit</button>
             </form>
         </div>

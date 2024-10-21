@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { JsonPipe, NgClass, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [
     FormsModule,
-    NgClass,
+    NgClass, NgIf,
+    JsonPipe
   ],
   templateUrl: './auth-forms.component.html',
   styleUrl: './auth-forms.component.css'
@@ -22,6 +23,8 @@ export class AuthFormsComponent {
   lastName: string = "";
   username: string = "";
   password: string = "";
+
+  @Input() incorrectUsernameOrPassword: boolean = false;
 
   onSubmitLogin() {
     this.onSubmitLoginEvent.emit({ "login": this.username, "password": this.password });

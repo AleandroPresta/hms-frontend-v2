@@ -3,7 +3,7 @@ import { RoomsFooterComponent } from '../../rooms/rooms-footer/rooms-footer.comp
 import { RoomsHeaderComponent } from '../../rooms/rooms-header/rooms-header.component';
 import { RouterOutlet } from '@angular/router';
 import { AuthFormsComponent } from "../auth-forms/auth-forms.component";
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { UserPageComponent } from "../user-page/user-page.component";
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     RoomsFooterComponent,
     RouterOutlet,
     AuthFormsComponent,
-    NgClass,
+    NgClass, NgIf,
     UserPageComponent,
     FormsModule
   ],
@@ -26,6 +26,11 @@ import { FormsModule } from '@angular/forms';
 export class ContentComponent {
 
   componentToShow: string = "auth";
+  incorrectUsernameOrPassword: boolean = false;
+
+  firstName: string = "";
+  lastName: string = "";
+  username: string = "";
 
   constructor(private authService: AuthService) { }
 
@@ -38,8 +43,16 @@ export class ContentComponent {
     if (user != null) {
       console.log('onLogin');
       console.table(user);
+      this.incorrectUsernameOrPassword = false;
+      this.componentToShow = 'user-page';
+
+      this.firstName = user.firstName;
+      this.lastName = user.lastName;
+      this.username = user.username;
     } else {
       console.log('Invalid login');
+      this.incorrectUsernameOrPassword = true;
+      this.componentToShow = 'auth';
     }
   }
 
