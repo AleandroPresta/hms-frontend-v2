@@ -4,6 +4,7 @@
     (onSubmitLoginEvent)="onLogin($event)"
     (onSubmitRegisterEvent)="onRegister($event)"
     [incorrectUsernameOrPassword]="incorrectUsernameOrPassword"
+    [userAlreadyExists]="userAlreadyExists"
     *ngIf="componentToShow == 'auth'"></app-auth-forms>
     <app-user-page
     *ngIf="componentToShow == 'user-page'"

@@ -25,6 +25,7 @@ export class AuthFormsComponent {
   password: string = "";
 
   @Input() incorrectUsernameOrPassword: boolean = false;
+  @Input() userAlreadyExists: boolean = false;
 
   onSubmitLogin() {
     this.onSubmitLoginEvent.emit({ "username": this.username, "password": this.password });

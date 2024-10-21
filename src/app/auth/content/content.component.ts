@@ -27,6 +27,7 @@ export class ContentComponent {
 
   componentToShow: string = "auth";
   incorrectUsernameOrPassword: boolean = false;
+  userAlreadyExists: boolean = false;
 
   firstName: string = "";
   lastName: string = "";
@@ -50,12 +51,15 @@ export class ContentComponent {
     } else {
       this.incorrectUsernameOrPassword = true;
       this.componentToShow = 'auth';
-      console.table(this.authService.mockUsers);
     }
   }
 
   onRegister(input: any): void {
-    this.authService.registerUser(input);
+    const user = this.authService.registerUser(input);
+    if (user == null) {
+      this.userAlreadyExists = true;
+      this.componentToShow = 'auth';
+    }
   }
 
 }

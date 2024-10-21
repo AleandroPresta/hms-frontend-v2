@@ -56,6 +56,9 @@
                     <input type="password" class="form-control" id="registerPassword" placeholder="Password" name="password" [(ngModel)]="password">
                     <label for="registerPassword">Password</label>
                 </div>
+                <div class="alert alert-danger" *ngIf="userAlreadyExists">
+	                Username already exists
+                </div>
                 <button class="btn btn-info text-light" type="submit">Submit</button>
             </form>
         </div>
