@@ -1,0 +1,60 @@
+<div class="card text-center">
+        <div class="card-header">
+            <ul
+                class="nav nav-tabs card-header-tabs"
+            >
+                <li class="nav-item">
+                    <a class="nav-link" 
+                    [ngClass]="active == 'login' ? 'active' : ''" 
+                    aria-current="true" 
+                    (click)="setActive('login')">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                    [ngClass]="active == 'register' ? 'active' : ''" 
+                    (click)="setActive('register')">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="p-4" [ngClass]="active == 'login' ? 'd-block' : 'd-none'">
+            <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="loginUsername" placeholder="Username" name="username" [(ngModel)]="username">
+                    <label for="loginUsername">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password" [(ngModel)]="password">
+                    <label for="loginPassword">Password</label>
+                </div>
+                <button class="btn btn-info text-light" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="p-4" [ngClass]="active == 'register' ? 'd-block' : 'd-none'">
+            <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" [(ngModel)]="firstName">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" [(ngModel)]="lastName">
+                    <label for="lastName">Last Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="registerUsername" placeholder="Username" name="username" [(ngModel)]="username">
+                    <label for="registerUsername">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Password" name="password" [(ngModel)]="password">
+                    <label for="registerPassword">Password</label>
+                </div>
+                <button class="btn btn-info text-light" type="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>

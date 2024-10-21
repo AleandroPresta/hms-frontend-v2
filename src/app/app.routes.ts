@@ -5,6 +5,7 @@ import { RoomsPageComponent } from './rooms/rooms-page/rooms-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RoomDetailComponent } from './rooms/room-detail/room-detail.component';
 import { AboutComponent } from './about/about.component';
+import { ContentComponent } from './auth/content/content.component';
 
 export const routes: Routes = [
     // Default route
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'rooms', component: RoomsPageComponent },
     { path: 'rooms/1', component: RoomDetailComponent }, // Mocks the room:id route (TODO: Implement dynamic routing)
     { path: 'about', component: AboutComponent },
+    { path: 'auth', component: ContentComponent },
     { path: '**', component: NotFoundComponent }
 ];
