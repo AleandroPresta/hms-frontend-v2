@@ -13,5 +13,7 @@
     [username]="username"
     (logoutEvent)="onLogout()"></app-user-page>
 </div>
+
+<p-toast [life]="3000" [breakpoints]="{ '920px': { width: '99%', right: '0', left: '0' } }" position="bottom-right"/>
 <app-rooms-footer></app-rooms-footer>
 <router-outlet></router-outlet>

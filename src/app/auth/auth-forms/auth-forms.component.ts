@@ -1,6 +1,8 @@
 import { JsonPipe, NgClass, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-auth-forms',
@@ -8,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     NgClass, NgIf,
-    JsonPipe
+    JsonPipe,
+    ToastModule,
   ],
   templateUrl: './auth-forms.component.html',
   styleUrl: './auth-forms.component.css'

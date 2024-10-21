@@ -7,6 +7,8 @@ import { NgClass, NgIf } from '@angular/common';
 import { UserPageComponent } from "../user-page/user-page.component";
 import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-content',
@@ -18,8 +20,10 @@ import { FormsModule } from '@angular/forms';
     AuthFormsComponent,
     NgClass, NgIf,
     UserPageComponent,
-    FormsModule
+    FormsModule,
+    ToastModule,
   ],
+  providers: [MessageService],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
@@ -33,7 +37,7 @@ export class ContentComponent {
   lastName: string = "";
   username: string = "";
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.checkLoginState();
@@ -75,7 +79,10 @@ export class ContentComponent {
     if (user == null) {
       this.userAlreadyExists = true;
       this.componentToShow = 'auth';
+      return;
     }
+    // If the registration is successful, show a success message
+    this.showSuccess('success', 'Registration Successful', 'You have successfully registered!');
   }
 
   onLogout(): void {
@@ -84,6 +91,16 @@ export class ContentComponent {
     this.firstName = "";
     this.lastName = "";
     this.username = "";
+  }
+
+  showSuccess(severity: string, summary: string, detail: string) {
+    this.messageService.add(
+      {
+        severity: severity,
+        summary: summary,
+        detail: detail,
+      }
+    );
   }
 
 }
