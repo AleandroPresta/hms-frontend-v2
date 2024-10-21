@@ -50,12 +50,12 @@ export class ContentComponent {
     } else {
       this.incorrectUsernameOrPassword = true;
       this.componentToShow = 'auth';
+      console.table(this.authService.mockUsers);
     }
   }
 
   onRegister(input: any): void {
-    console.log('onRegister');
-    console.table(input);
+    this.authService.registerUser(input);
   }
 
 }

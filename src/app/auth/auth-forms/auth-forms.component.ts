@@ -27,11 +27,11 @@ export class AuthFormsComponent {
   @Input() incorrectUsernameOrPassword: boolean = false;
 
   onSubmitLogin() {
-    this.onSubmitLoginEvent.emit({ "login": this.username, "password": this.password });
+    this.onSubmitLoginEvent.emit({ "username": this.username, "password": this.password });
   }
 
   onSubmitRegister() {
-    this.onSubmitRegisterEvent.emit({ "firstName": this.firstName, "lastName": this.lastName, "login": this.username, "password": this.password });
+    this.onSubmitRegisterEvent.emit({ "firstName": this.firstName, "lastName": this.lastName, "username": this.username, "password": this.password });
   }
 
   setActive(active: string) {

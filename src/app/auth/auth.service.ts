@@ -37,13 +37,12 @@ export class AuthService {
   registerUser(data: any) {
     console.log('registerUser');
     this.mockUsers.push(data);
+    console.table(this.mockUsers);
   }
 
   loginUser(data: any) {
-    console.log('loginUser');
-    console.log(data);
     for (let user of this.mockUsers) {
-      if (user.username == data.login && user.password == data.password) {
+      if (user.username == data.username && user.password == data.password) {
         return user;
       }
     }
