@@ -31,6 +31,9 @@
                     <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password" [(ngModel)]="password">
                     <label for="loginPassword">Password</label>
                 </div>
+                <div class="alert alert-danger" *ngIf="incorrectUsernameOrPassword">
+	                Incorrect username or password
+                </div>
                 <button class="btn btn-info text-light" type="submit">Submit</button>
             </form>
         </div>
@@ -52,6 +55,9 @@
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="registerPassword" placeholder="Password" name="password" [(ngModel)]="password">
                     <label for="registerPassword">Password</label>
+                </div>
+                <div class="alert alert-danger" *ngIf="userAlreadyExists">
+	                Username already exists
                 </div>
                 <button class="btn btn-info text-light" type="submit">Submit</button>
             </form>
