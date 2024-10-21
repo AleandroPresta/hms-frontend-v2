@@ -4,5 +4,9 @@
         <p class="card-text"><strong>Username:</strong> {{ username }}</p>
         <p class="card-text"><strong>First Name:</strong> {{ firstName }}</p>
         <p class="card-text"><strong>Last Name:</strong> {{ lastName }}</p>
+        <div class="d-flex justify-content-center align-items-end gap-2">
+            <button class="btn btn-primary px-3 py-2" (click)="onLogout()">Logout</button>
+            <button class="btn btn-primary px-3 py-2">Update</button>
+        </div>
     </div>
 </div>
