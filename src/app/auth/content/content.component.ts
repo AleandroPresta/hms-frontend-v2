@@ -41,8 +41,6 @@ export class ContentComponent {
   onLogin(input: any): void {
     const user = this.authService.loginUser(input);
     if (user != null) {
-      console.log('onLogin');
-      console.table(user);
       this.incorrectUsernameOrPassword = false;
       this.componentToShow = 'user-page';
 
@@ -50,7 +48,6 @@ export class ContentComponent {
       this.lastName = user.lastName;
       this.username = user.username;
     } else {
-      console.log('Invalid login');
       this.incorrectUsernameOrPassword = true;
       this.componentToShow = 'auth';
     }

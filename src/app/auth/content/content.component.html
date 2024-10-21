@@ -6,7 +6,10 @@
     [incorrectUsernameOrPassword]="incorrectUsernameOrPassword"
     *ngIf="componentToShow == 'auth'"></app-auth-forms>
     <app-user-page
-    *ngIf="componentToShow == 'user-page'"></app-user-page>
+    *ngIf="componentToShow == 'user-page'"
+    [firstName]="firstName"
+    [lastName]="lastName"
+    [username]="username"></app-user-page>
 </div>
 <app-rooms-footer></app-rooms-footer>
 <router-outlet></router-outlet>
