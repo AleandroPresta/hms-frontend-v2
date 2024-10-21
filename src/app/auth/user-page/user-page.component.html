@@ -1,8 +1,44 @@
-<div class="card text-start">
+<div class="card text-start p-3">
     <div class="card-body">
-        <h4 class="card-title">User</h4>
-        <p class="card-text"><strong>Username:</strong> {{ username }}</p>
-        <p class="card-text"><strong>First Name:</strong> {{ firstName }}</p>
-        <p class="card-text"><strong>Last Name:</strong> {{ lastName }}</p>
+        <h4 class="card-title mb-5">User Information</h4>
+        <p class="card-text mb-5"><strong>Username:</strong> {{ username }}</p>
+        <p class="card-text mb-5"><strong>First Name:</strong> {{ firstName }}</p>
+        <p class="card-text mb-5"><strong>Last Name:</strong> {{ lastName }}</p>
+        <div class="d-flex justify-content-center align-items-end gap-2">
+            <button class="btn btn-primary px-3 py-2" (click)="onLogout()">Logout</button>
+            <button class="btn btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#updateUserModal">Update</button>
+        </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="updateUserModalLabel">Update User Information</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form #updateForm="ngForm">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" [(ngModel)]="updatedFirstName">
+                <label for="firstName">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" [(ngModel)]="updatedLastName">
+                <label for="lastName">Last Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input disabled type="text" class="form-control" id="username" placeholder="Username" name="username" [(ngModel)]="username">
+                <label for="username">Username</label>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info text-light" (click)="onUpdate()" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
