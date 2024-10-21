@@ -70,4 +70,14 @@ export class AuthService {
     }
     return null;
   }
+
+  updateUser(firstName: string, lastName: string, username: string): any {
+    const user = this.getLoggedInUser();
+    if (user) {
+      user.firstName = firstName;
+      user.lastName = lastName;
+      user.username = username;
+    }
+    return user;
+  }
 }
