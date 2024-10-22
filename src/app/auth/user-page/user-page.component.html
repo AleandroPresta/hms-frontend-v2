@@ -1,9 +1,11 @@
 <div class="card text-start p-3">
     <div class="card-body">
-        <h4 class="card-title mb-5">User Information</h4>
-        <p class="card-text mb-5"><strong>Username:</strong> {{ username }}</p>
-        <p class="card-text mb-5"><strong>First Name:</strong> {{ firstName }}</p>
-        <p class="card-text mb-5"><strong>Last Name:</strong> {{ lastName }}</p>
+        <h4 class="card-title mb-4">User Information</h4>
+        <p class="card-text mb-4"><strong>Username:</strong> {{ username }}</p>
+        <p class="card-text mb-4"><strong>First Name:</strong> {{ firstName }}</p>
+        <p class="card-text mb-4"><strong>Last Name:</strong> {{ lastName }}</p>
+        <p class="card-text mb-4"><strong>ID:</strong> {{ id }}</p>
+        <p class="card-text mb-4"><strong>Role:</strong> {{ role }}</p>
         <div class="d-flex justify-content-center align-items-end gap-2">
             <button class="btn btn-primary px-3 py-2" (click)="onLogout()">Logout</button>
             <button class="btn btn-primary px-3 py-2" data-bs-toggle="modal" data-bs-target="#updateUserModal">Update</button>
@@ -32,6 +34,14 @@
             <div class="form-floating mb-3">
                 <input disabled type="text" class="form-control" id="username" placeholder="Username" name="username" [(ngModel)]="username">
                 <label for="username">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input disabled type="text" class="form-control" id="id" placeholder="ID" name="id" [(ngModel)]="id">
+                <label for="id">ID</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input disabled type="text" class="form-control" id="role" placeholder="Role" name="role" [(ngModel)]="role">
+                <label for="role">Role</label>
             </div>
         </form>
       </div>

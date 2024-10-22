@@ -11,7 +11,7 @@ export class AuthService {
       lastName: "Doe",
       username: "johndoe",
       password: "password",
-      id: 0,
+      id: 1,
       role: "user"
     },
     {
@@ -19,7 +19,7 @@ export class AuthService {
       lastName: "Doe",
       username: "janedoe",
       password: "password",
-      id: 1,
+      id: 2,
       role: "user"
     }
   ]
