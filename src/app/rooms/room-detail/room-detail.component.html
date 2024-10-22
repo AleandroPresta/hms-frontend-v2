@@ -32,7 +32,10 @@
             <p class="playfair-display-400"><strong>Rating:</strong></p>
             <p-rating [(ngModel)]="room.rating" [readonly]="true" [cancel]="false" class="my-1"></p-rating>
         </div>      
-        <h2 class="playfair-display-700 align-self-center">€{{ room.price }} per day</h2>
+        <div class="d-flex justify-content-between gap-2 align-items-center mt-5">
+            <h2 class="playfair-display-700">€{{ room.price }} per day</h2>
+            <button class="btn btn-info playfair-display-500 text-light">Book Now</button>
+        </div>
     </div>
 </main>
 <app-rooms-footer></app-rooms-footer>
