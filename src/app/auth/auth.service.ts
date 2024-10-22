@@ -21,6 +21,14 @@ export class AuthService {
       password: "password",
       id: 2,
       role: "user"
+    },
+    {
+      firstName: "Admin",
+      lastName: "Admin",
+      username: "admin",
+      password: "password",
+      id: 3,
+      role: "admin"
     }
   ]
 
