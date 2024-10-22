@@ -221,4 +221,17 @@ export class RoomsService {
   getRooms(): Room[] {
     return this.mockRooms;
   }
+
+  getRoomById(id: number): Room {
+    console.log(`Searched Room ID: ${id}`);
+    const room: Room | undefined = this.mockRooms.find((room) => {
+      return room.id === id;
+    });
+
+    if (!room) {
+      throw new Error(`Room with ID ${id} not found`);
+    }
+    return room;
+  }
+
 }

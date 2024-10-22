@@ -1,5 +1,5 @@
 <app-rooms-header></app-rooms-header>
-<main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row">
+<main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row" *ngIf="room$ | async as room">
     <div class="container-fluid m-0 p-0 d-block d-sm-flex justify-content-center justify-content-xl-start">
         <app-galleria [images]="room.images"></app-galleria>
     </div>
@@ -40,69 +40,70 @@
             data-bs-target="#modalId">Book Now</button>
         </div>
     </div>
-</main>
-<app-rooms-footer></app-rooms-footer>
 
-<!-- Book Modal -->
-<!-- Modal Body -->
-<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div
-    class="modal fade"
-    id="modalId"
-    tabindex="-1"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    
-    role="dialog"
-    aria-labelledby="modalTitleId"
-    aria-hidden="true"
->
+    <!-- Book Modal -->
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
     <div
-        class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
-        role="document"
+        class="modal fade"
+        id="modalId"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
     >
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">
-                    Book {{ room.name }}
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="check-in-date" class="form-label">Check-in Date</label>
-                    <input
-                    required
-                    type="date"
-                    class="form-control background-color-light color-dark"
-                    name="check-in-date"
-                    />     
+        <div
+            class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+            role="document"
+        >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Book {{ room.name }}
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
                 </div>
-                <div class="mb-3">
-                    <label for="check-out-date" class="form-label">Check-out Date</label>
-                    <input
-                    required
-                    type="date"
-                    class="form-control background-color-light color-dark"
-                    name="check-out-date"
-                    />
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="check-in-date" class="form-label">Check-in Date</label>
+                        <input
+                        required
+                        type="date"
+                        class="form-control background-color-light color-dark"
+                        name="check-in-date"
+                        />     
+                    </div>
+                    <div class="mb-3">
+                        <label for="check-out-date" class="form-label">Check-out Date</label>
+                        <input
+                        required
+                        type="date"
+                        class="form-control background-color-light color-dark"
+                        name="check-out-date"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                >
-                    Close
-                </button>
-                <button type="button" class="btn btn-info text-light">Book</button>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-info text-light">Book</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</main>
+<app-rooms-footer></app-rooms-footer>

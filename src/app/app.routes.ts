@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'rooms', component: RoomsPageComponent },
-    { path: 'rooms/1', component: RoomDetailComponent }, // Mocks the room:id route (TODO: Implement dynamic routing)
+    { path: 'rooms/:id', component: RoomDetailComponent },
     { path: 'about', component: AboutComponent },
     { path: 'auth', component: ContentComponent },
     { path: 'admin', component: AdminComponent },
