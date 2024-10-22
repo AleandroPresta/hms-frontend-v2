@@ -75,14 +75,16 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
+                    <label for="check-in-date" class="form-label">Check-in Date</label>
                     <input
                     required
                     type="date"
                     class="form-control background-color-light color-dark"
                     name="check-in-date"
-                    />
+                    />     
                 </div>
                 <div class="mb-3">
+                    <label for="check-out-date" class="form-label">Check-out Date</label>
                     <input
                     required
                     type="date"
@@ -104,11 +106,3 @@
         </div>
     </div>
 </div>
-
-<!-- Optional: Place to the bottom of scripts -->
-<script>
-    const myModal = new bootstrap.Modal(
-        document.getElementById("modalId"),
-        options,
-    );
-</script>
