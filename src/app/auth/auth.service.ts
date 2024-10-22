@@ -11,12 +11,16 @@ export class AuthService {
       lastName: "Doe",
       username: "johndoe",
       password: "password",
+      id: 0,
+      role: "user"
     },
     {
       firstName: "Jane",
       lastName: "Doe",
       username: "janedoe",
       password: "password",
+      id: 1,
+      role: "user"
     }
   ]
 
@@ -41,6 +45,9 @@ export class AuthService {
         return null;
       }
     }
+    // Create user with data + id + role
+    data.id = this.mockUsers.length;
+    data.role = "user";
     this.mockUsers.push(data);
     return data;
   }
