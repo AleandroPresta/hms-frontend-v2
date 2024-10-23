@@ -257,8 +257,8 @@ export class RoomsService {
   }
 
   bookRoom(roomId: number, startDate: Date, endDate: Date) {
-    // Check if the dates ar invalid
-    if (!startDate || !endDate) {
+    // Check if checkInDate and checkOutDate are valid Date objects
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
       console.error('Invalid booking dates');
       return;
     }
@@ -270,7 +270,6 @@ export class RoomsService {
     }
 
 
-    console.log('bookRoom called');
     const booking: Booking = {
       id: this.mockRooms[roomId - 1].bookings.length + 1,
       roomId: roomId,

@@ -76,10 +76,9 @@ export class RoomDetailComponent {
     // If the previous date was invalid the message needs to be cleared
     this.invalidDate = false;
 
-    const isAvailable = this.roomsService.checkAvailable(roomId, this.checkInDate, this.checkOutDate);
+    const isAvailable = this.roomsService.checkAvailable(roomId, checkInDate, checkOutDate);
     if (isAvailable) {
-      console.log('Room is available, booking now...');
-      this.roomsService.bookRoom(roomId, this.checkInDate, this.checkOutDate);
+      this.roomsService.bookRoom(roomId, checkInDate, checkOutDate);
     } else {
       this.roomNotAvailable = true;
     }
