@@ -17,7 +17,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  componentToShow?: string;
+  componentToShow: string = 'auth';
   incorrectUsernameOrPassword: Boolean = false;
   notAdmin = false;
   firstName: string = "";
@@ -49,7 +49,9 @@ export class AdminComponent implements OnInit {
         this.role = user.role;
         this.componentToShow = 'dashboard';
       }
+      // If the user is not an admin, we log them out and show the auth panel
       if (user.role != 'admin') {
+        this.authService.logoutUser();
         this.notAdmin = true;
         this.componentToShow = 'auth';
         return;
@@ -58,7 +60,9 @@ export class AdminComponent implements OnInit {
   }
 
   onLogin(input: any): void {
+    // Get the user
     const user = this.authService.loginUser(input);
+    // Check if the user exists
     if (user != null) {
       // Only admins can access the admin-dashboard
       if (user.role != 'admin') {
@@ -66,8 +70,9 @@ export class AdminComponent implements OnInit {
         this.componentToShow = 'auth';
         return;
       }
-
+      // If the user is an admin
       this.incorrectUsernameOrPassword = false;
+      this.notAdmin = false;
       this.componentToShow = 'dashboard';
 
       this.firstName = user.firstName;
@@ -75,7 +80,7 @@ export class AdminComponent implements OnInit {
       this.username = user.username;
       this.id = user.id;
       this.role = user.role;
-    } else {
+    } else { // If the user does not exist
       this.incorrectUsernameOrPassword = true;
       this.componentToShow = 'auth';
     }
