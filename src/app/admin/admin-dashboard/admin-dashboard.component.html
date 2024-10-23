@@ -2,11 +2,17 @@
   <!-- Navigation bar -->
   <nav class="bg-light border-bottom px-3 py-2 d-flex align-items-center justify-content-between">
     <h1 class="h5 mb-0">Rooms Dashboard</h1>
+    <!-- Hamburger menu for mobile -->
+    <button class="btn d-lg-none" (click)="toggleSidebar()">
+      <i class="bi bi-list fs-4"></i>
+    </button>
   </nav>
 
   <div class="d-flex flex-grow-1 overflow-hidden">
-    <!-- Room list -->
-    <div class="border-end overflow-auto" style="width: 320px;">
+    <!-- Room list - hidden by default on mobile -->
+    <div class="border-end overflow-auto" 
+         [ngClass]="{'d-none d-lg-block': !isSidebarOpen}" 
+         style="width: 320px;">
       <div class="list-group list-group-flush">
         <a *ngFor="let room of rooms" 
            (click)="selectRoom(room)"
@@ -34,11 +40,18 @@
       <div *ngIf="selectedRoom; else noSelection" class="h-100">
         <div class="d-flex flex-column h-100">
           <div class="p-4 border-bottom">
+            <!-- Back button for mobile -->
+            <button *ngIf="isSidebarOpen" 
+                    class="btn btn-sm btn-outline-secondary mb-3 d-lg-none"
+                    (click)="toggleSidebar()">
+              <i class="bi bi-arrow-left"></i> Back to list
+            </button>
             <h4 class="mb-0">{{selectedRoom.name}}</h4>
           </div>
           <div class="p-4">
             <div class="row g-4">
-              <div *ngFor="let image of selectedRoom.images" class="col-12 col-md-6 col-lg-4">
+              <div *ngFor="let image of selectedRoom.images" 
+                   class="col-12 col-sm-6 col-xl-4">
                 <img [src]="image" 
                      [alt]="selectedRoom.name"
                      class="img-fluid rounded shadow-sm w-100"
@@ -50,7 +63,12 @@
       </div>
       <ng-template #noSelection>
         <div class="h-100 d-flex align-items-center justify-content-center text-muted">
-          Select a room to view details
+          <div class="text-center">
+            <p class="mb-0 d-none d-lg-block">Select a room to view details</p>
+            <button class="btn btn-primary d-lg-none" (click)="toggleSidebar()">
+              Select a Room
+            </button>
+          </div>
         </div>
       </ng-template>
     </div>

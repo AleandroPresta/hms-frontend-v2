@@ -17,14 +17,25 @@ import { AdminRoomPreviewComponent } from "../admin-room-preview/admin-room-prev
 export class AdminDashboardComponent implements OnInit {
   rooms: Room[] = [];
   selectedRoom: Room | null = null;
+  isSidebarOpen = false;
 
   constructor(private roomsService: RoomsService) { }
 
   ngOnInit(): void {
     this.rooms = this.roomsService.getRooms();
+    // On larger screens, show sidebar by default
+    this.isSidebarOpen = window.innerWidth >= 992;
   }
 
   selectRoom(room: Room): void {
     this.selectedRoom = room;
+    // On mobile, hide sidebar after selection
+    if (window.innerWidth < 992) {
+      this.isSidebarOpen = false;
+    }
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
