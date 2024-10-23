@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RoomsService } from '../../rooms/rooms.service';
 import { Room } from '../../rooms/Room';
 import { AdminRoomPreviewComponent } from "../admin-room-preview/admin-room-preview.component";
+import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,6 +12,7 @@ import { AdminRoomPreviewComponent } from "../admin-room-preview/admin-room-prev
   imports: [
     CommonModule,
     AdminRoomPreviewComponent,
+    FontAwesomeModule
   ],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
@@ -18,6 +21,9 @@ export class AdminDashboardComponent implements OnInit {
   rooms: Room[] = [];
   selectedRoom: Room | null = null;
   isSidebarOpen = false;
+
+  faBars = faBars;
+  faArrowLeft = faArrowLeft;
 
   constructor(private roomsService: RoomsService) { }
 
