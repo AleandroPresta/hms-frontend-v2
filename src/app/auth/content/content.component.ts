@@ -36,6 +36,8 @@ export class ContentComponent {
   firstName: string = "";
   lastName: string = "";
   username: string = "";
+  id: number = 0;
+  role: string = "";
 
   constructor(private authService: AuthService, private messageService: MessageService) { }
 
@@ -50,6 +52,8 @@ export class ContentComponent {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
         this.username = user.username;
+        this.id = user.id;
+        this.role = user.role;
         this.componentToShow = 'user-page';
       }
     }
@@ -68,6 +72,8 @@ export class ContentComponent {
       this.firstName = user.firstName;
       this.lastName = user.lastName;
       this.username = user.username;
+      this.id = user.id;
+      this.role = user.role;
     } else {
       this.incorrectUsernameOrPassword = true;
       this.componentToShow = 'auth';
@@ -91,6 +97,8 @@ export class ContentComponent {
     this.firstName = "";
     this.lastName = "";
     this.username = "";
+    this.id = 0;
+    this.role = "";
   }
 
   showSuccess(severity: string, summary: string, detail: string) {

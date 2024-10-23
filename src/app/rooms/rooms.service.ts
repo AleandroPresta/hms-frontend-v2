@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Room } from './Room';
+import { Booking, Room } from './Room';
+import { mock } from 'node:test';
 
 @Injectable({
   providedIn: 'root'
@@ -221,4 +222,64 @@ export class RoomsService {
   getRooms(): Room[] {
     return this.mockRooms;
   }
+
+  getRoomById(id: number): Room {
+    const room: Room | undefined = this.mockRooms.find((room) => {
+      return room.id === id;
+    });
+
+    if (!room) {
+      throw new Error(`Room with ID ${id} not found`);
+    }
+    return room;
+  }
+
+  getRoomByBookingRange(startDate: Date, endDate: Date): Room[] {
+    const availableRooms: Room[] = this.mockRooms.filter((room) => {
+      // Return true if NO booking overlaps with the requested period
+      return !room.bookings.some((booking) => {
+        return startDate < booking.endDate && endDate > booking.startDate;
+      });
+    });
+
+    return availableRooms;
+  }
+
+  checkAvailable(roomId: number, startDate: Date, endDate: Date): boolean {
+    console.log(`checkAvailable for Room ID: ${roomId} for ${startDate} to ${endDate}`);
+
+    const room: Room = this.getRoomById(roomId);
+    const isAvailable: boolean = !room.bookings.some((booking) => {
+      return startDate < booking.endDate && endDate > booking.startDate;
+    });
+
+    return isAvailable;
+  }
+
+  bookRoom(roomId: number, startDate: Date, endDate: Date) {
+    // Check if checkInDate and checkOutDate are valid Date objects
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      console.error('Invalid booking dates');
+      return;
+    }
+
+    // Check if the endDate is before the startDate
+    if (startDate > endDate) {
+      console.error('Invalid booking dates');
+      return;
+    }
+
+
+    const booking: Booking = {
+      id: this.mockRooms[roomId - 1].bookings.length + 1,
+      roomId: roomId,
+      startDate: startDate,
+      endDate: endDate
+    }
+
+    // Add the booking to the room
+    this.mockRooms.find((room) => room.id === roomId)?.bookings.push(booking);
+    console.table(this.mockRooms.find((room) => room.id === roomId)?.bookings);
+  }
+
 }

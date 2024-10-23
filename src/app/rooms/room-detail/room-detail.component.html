@@ -1,5 +1,5 @@
 <app-rooms-header></app-rooms-header>
-<main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row">
+<main class="container bg-light rounded-3 p-3 d-flex flex-column flex-lg-row" *ngIf="room$ | async as room">
     <div class="container-fluid m-0 p-0 d-block d-sm-flex justify-content-center justify-content-xl-start">
         <app-galleria [images]="room.images"></app-galleria>
     </div>
@@ -32,7 +32,88 @@
             <p class="playfair-display-400"><strong>Rating:</strong></p>
             <p-rating [(ngModel)]="room.rating" [readonly]="true" [cancel]="false" class="my-1"></p-rating>
         </div>      
-        <h2 class="playfair-display-700 align-self-center">€{{ room.price }} per day</h2>
+        <div class="d-flex justify-content-between gap-2 align-items-center mt-5">
+            <h2 class="playfair-display-700">€{{ room.price }} per day</h2>
+            <button 
+            class="btn btn-info playfair-display-500 text-light" 
+            data-bs-toggle="modal"
+            data-bs-target="#modalId">Book Now</button>
+        </div>
     </div>
+
+    <!-- Book Modal -->
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div
+        class="modal fade"
+        id="modalId"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+            role="document"
+        >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Book {{ room.name }}
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="check-in-date" class="form-label">Check-in Date</label>
+                        <input
+                        required
+                        type="date"
+                        class="form-control background-color-light color-dark"
+                        name="check-in-date"
+                        [(ngModel)]="checkInDate"
+                        />     
+                    </div>
+                    <div class="mb-3">
+                        <label for="check-out-date" class="form-label">Check-out Date</label>
+                        <input
+                        required
+                        type="date"
+                        class="form-control background-color-light color-dark"
+                        name="check-out-date"
+                        [(ngModel)]="checkOutDate"
+                        />
+                    </div>
+                    <div class="alert alert-danger" *ngIf="invalidDate">
+	                    Invalid dates
+                    </div>
+                    <div class="alert alert-danger" *ngIf="roomNotAvailable">
+	                    Room unavailable in the selected period
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-info text-light" (click)="bookRoomIfAvailable(room.id)">Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p-toast [life]="3000" [breakpoints]="{ '920px': { width: '99%', right: '0', left: '0' } }" position="bottom-right"/>
+
 </main>
 <app-rooms-footer></app-rooms-footer>

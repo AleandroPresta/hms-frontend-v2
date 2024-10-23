@@ -17,6 +17,8 @@ export class UserPageComponent implements OnInit {
   @Input() firstName: string = "";
   @Input() lastName: string = "";
   @Input() username: string = "";
+  @Input() id: number = 0;
+  @Input() role: string = "";
 
   updatedFirstName: string = "";
   updatedLastName: string = "";

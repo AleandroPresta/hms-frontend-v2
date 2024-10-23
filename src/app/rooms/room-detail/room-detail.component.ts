@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Room } from '../Room';
 import { GalleriaModule } from 'primeng/galleria';
 import { GalleriaComponent } from '../../galleria/galleria.component';
@@ -8,7 +8,12 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUsers, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
-import { NgFor } from '@angular/common';
+import { AsyncPipe, NgFor } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable, switchMap } from 'rxjs';
+import { RoomsService } from '../rooms.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-room-detail',
@@ -21,45 +26,80 @@ import { NgFor } from '@angular/common';
     RatingModule,
     FormsModule,
     FontAwesomeModule,
-    NgFor
+    NgFor,
+    AsyncPipe,
+    ToastModule
   ],
+  providers: [MessageService],
   templateUrl: './room-detail.component.html',
   styleUrl: './room-detail.component.css',
 })
 export class RoomDetailComponent {
-  constructor() { }
 
-  room: Room = {
-    id: 10,
-    name: 'Pulsar Penthouse',
-    type: 'Penthouse',
-    capacity: 6,
-    location: 'Pulsar Wing',
-    images: [
-      'https://picsum.photos/seed/pulsar1/600/600',
-      'https://picsum.photos/seed/pulsar2/600/600',
-      'https://picsum.photos/seed/pulsar3/600/600',
-      'https://picsum.photos/seed/pulsar4/600/600',
-      'https://picsum.photos/seed/pulsar5/600/600',
-      'https://picsum.photos/seed/pulsar6/600/600',
-      'https://picsum.photos/seed/pulsar7/600/600',
-      'https://picsum.photos/seed/pulsar8/600/600',
-    ],
-    size: 150,
-    features: ['Three King Beds', 'Pulsar View', 'Private Gym'],
-    bookings: [
-      {
-        id: 11,
-        roomId: 10,
-        startDate: new Date('2023-12-10T14:00:00'),
-        endDate: new Date('2023-12-15T11:00:00'),
-      },
-    ],
-    price: 450,
-    rating: 4.2,
-  };
+  room$: Observable<Room>;
+  id$: Observable<number>;
+
+  checkInDate!: Date;
+  checkOutDate!: Date;
+  invalidDate: Boolean = false;
+  roomNotAvailable: Boolean = false;
 
   faUsers = faUsers;
   faRulerCombined = faRulerCombined;
+
+  constructor(
+    private router: ActivatedRoute,
+    private roomsService: RoomsService,
+    private messageService: MessageService) {
+    this.id$ = this.router.params.pipe(
+      map(params => +params['id'])
+    );
+
+    this.room$ = this.id$.pipe(
+      switchMap(async (id) => this.roomsService.getRoomById(id))
+    );
+  }
+
+  bookRoomIfAvailable(roomId: number) {
+    const checkInDate = new Date(this.checkInDate);
+    const checkOutDate = new Date(this.checkOutDate);
+    this.roomNotAvailable = false;
+
+    console.log(`Booking Room ID: ${roomId} for ${checkInDate} to ${checkOutDate}`);
+
+    // Check if checkInDate and checkOutDate are valid Date objects
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+      console.error('Invalid booking dates');
+      this.invalidDate = true;
+      return;
+    }
+
+    // Check if the endDate is before the startDate
+    if (checkInDate > checkOutDate) {
+      console.error('Invalid booking range');
+      this.invalidDate = true;
+      return;
+    }
+    // If the previous date was invalid the message needs to be cleared
+    this.invalidDate = false;
+
+    const isAvailable = this.roomsService.checkAvailable(roomId, checkInDate, checkOutDate);
+    if (isAvailable) {
+      this.roomsService.bookRoom(roomId, checkInDate, checkOutDate);
+      this.showSuccess('success', 'Booking Successful', 'You have successfully booked this room!');
+    } else {
+      this.roomNotAvailable = true;
+    }
+  }
+
+  showSuccess(severity: string, summary: string, detail: string) {
+    this.messageService.add(
+      {
+        severity: severity,
+        summary: summary,
+        detail: detail,
+      }
+    );
+  }
 
 }
