@@ -79,6 +79,7 @@
                         type="date"
                         class="form-control background-color-light color-dark"
                         name="check-in-date"
+                        [(ngModel)]="checkInDate"
                         />     
                     </div>
                     <div class="mb-3">
@@ -88,7 +89,14 @@
                         type="date"
                         class="form-control background-color-light color-dark"
                         name="check-out-date"
+                        [(ngModel)]="checkOutDate"
                         />
+                    </div>
+                    <div class="alert alert-danger" *ngIf="invalidDate">
+	                    Invalid dates
+                    </div>
+                    <div class="alert alert-danger" *ngIf="roomNotAvailable">
+	                    Room unavailable in the selected period
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -99,7 +107,7 @@
                     >
                         Close
                     </button>
-                    <button type="button" class="btn btn-info text-light">Book</button>
+                    <button type="button" class="btn btn-info text-light" (click)="bookRoomIfAvailable(room.id)">Book</button>
                 </div>
             </div>
         </div>

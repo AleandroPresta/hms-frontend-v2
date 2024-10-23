@@ -35,6 +35,11 @@ export class RoomDetailComponent {
   room$: Observable<Room>;
   id$: Observable<number>;
 
+  checkInDate!: Date;
+  checkOutDate!: Date;
+  invalidDate: Boolean = false;
+  roomNotAvailable: Boolean = false;
+
   faUsers = faUsers;
   faRulerCombined = faRulerCombined;
 
@@ -46,6 +51,38 @@ export class RoomDetailComponent {
     this.room$ = this.id$.pipe(
       switchMap(async (id) => this.roomsService.getRoomById(id))
     );
+  }
+
+  bookRoomIfAvailable(roomId: number) {
+    const checkInDate = new Date(this.checkInDate);
+    const checkOutDate = new Date(this.checkOutDate);
+    this.roomNotAvailable = false;
+
+    console.log(`Booking Room ID: ${roomId} for ${checkInDate} to ${checkOutDate}`);
+
+    // Check if checkInDate and checkOutDate are valid Date objects
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+      console.error('Invalid booking dates');
+      this.invalidDate = true;
+      return;
+    }
+
+    // Check if the endDate is before the startDate
+    if (checkInDate > checkOutDate) {
+      console.error('Invalid booking range');
+      this.invalidDate = true;
+      return;
+    }
+    // If the previous date was invalid the message needs to be cleared
+    this.invalidDate = false;
+
+    const isAvailable = this.roomsService.checkAvailable(roomId, this.checkInDate, this.checkOutDate);
+    if (isAvailable) {
+      console.log('Room is available, booking now...');
+      this.roomsService.bookRoom(roomId, this.checkInDate, this.checkOutDate);
+    } else {
+      this.roomNotAvailable = true;
+    }
   }
 
 }

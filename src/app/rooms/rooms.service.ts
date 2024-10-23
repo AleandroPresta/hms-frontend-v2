@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Room } from './Room';
+import { Booking, Room } from './Room';
+import { mock } from 'node:test';
 
 @Injectable({
   providedIn: 'root'
@@ -223,7 +224,6 @@ export class RoomsService {
   }
 
   getRoomById(id: number): Room {
-    console.log(`Searched Room ID: ${id}`);
     const room: Room | undefined = this.mockRooms.find((room) => {
       return room.id === id;
     });
@@ -243,6 +243,44 @@ export class RoomsService {
     });
 
     return availableRooms;
+  }
+
+  checkAvailable(roomId: number, startDate: Date, endDate: Date): boolean {
+    console.log(`checkAvailable for Room ID: ${roomId} for ${startDate} to ${endDate}`);
+
+    const room: Room = this.getRoomById(roomId);
+    const isAvailable: boolean = !room.bookings.some((booking) => {
+      return startDate < booking.endDate && endDate > booking.startDate;
+    });
+
+    return isAvailable;
+  }
+
+  bookRoom(roomId: number, startDate: Date, endDate: Date) {
+    // Check if the dates ar invalid
+    if (!startDate || !endDate) {
+      console.error('Invalid booking dates');
+      return;
+    }
+
+    // Check if the endDate is before the startDate
+    if (startDate > endDate) {
+      console.error('Invalid booking dates');
+      return;
+    }
+
+
+    console.log('bookRoom called');
+    const booking: Booking = {
+      id: this.mockRooms[roomId - 1].bookings.length + 1,
+      roomId: roomId,
+      startDate: startDate,
+      endDate: endDate
+    }
+
+    // Add the booking to the room
+    this.mockRooms.find((room) => room.id === roomId)?.bookings.push(booking);
+    console.table(this.mockRooms.find((room) => room.id === roomId)?.bookings);
   }
 
 }
