@@ -19,6 +19,7 @@ export class AdminComponent {
 
   componentToShow = 'auth';
   incorrectUsernameOrPassword: Boolean = false;
+  notAdmin = false;
   firstName: string = "";
   lastName: string = "";
   username: string = "";
@@ -36,6 +37,13 @@ export class AdminComponent {
   onLogin(input: any): void {
     const user = this.authService.loginUser(input);
     if (user != null) {
+      // Only admins can access the admin-dashboard
+      if (user.role != 'admin') {
+        this.notAdmin = true;
+        this.componentToShow = 'auth';
+        return;
+      }
+
       this.incorrectUsernameOrPassword = false;
       this.componentToShow = 'dashboard';
 

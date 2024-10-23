@@ -26,6 +26,9 @@
             <div class="alert alert-danger" *ngIf="incorrectUsernameOrPassword">
                 Incorrect username or password
             </div>
+            <div class="alert alert-danger" *ngIf="notAdmin">
+                The user is not an admin
+            </div>
             <button class="btn btn-info text-light" type="submit">Submit</button>
         </form>
     </div>

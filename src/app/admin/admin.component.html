@@ -12,6 +12,7 @@
         *ngIf="componentToShow == 'auth'"
         (onSubmitLoginEvent)="onLogin($event)"
         [incorrectUsernameOrPassword]="incorrectUsernameOrPassword"
+        [notAdmin]="notAdmin"
     ></app-admin-login-form>
     <app-admin-dashboard
         *ngIf="componentToShow == 'dashboard'"

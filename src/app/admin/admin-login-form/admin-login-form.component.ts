@@ -17,6 +17,7 @@ export class AdminLoginFormComponent {
   @Output() onSubmitLoginEvent = new EventEmitter();
 
   @Input() incorrectUsernameOrPassword: Boolean = false;
+  @Input() notAdmin: Boolean = false;
 
   username: string = "";
   password: string = "";
