@@ -234,4 +234,15 @@ export class RoomsService {
     return room;
   }
 
+  getRoomByBookingRange(startDate: Date, endDate: Date): Room[] {
+    const availableRooms: Room[] = this.mockRooms.filter((room) => {
+      // Return true if NO booking overlaps with the requested period
+      return !room.bookings.some((booking) => {
+        return startDate < booking.endDate && endDate > booking.startDate;
+      });
+    });
+
+    return availableRooms;
+  }
+
 }
