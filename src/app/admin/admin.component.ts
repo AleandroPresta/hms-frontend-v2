@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminLoginFormComponent } from "./admin-login-form/admin-login-form.component";
 import { NgIf } from '@angular/common';
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
@@ -15,9 +15,9 @@ import { AuthService } from '../auth/auth.service';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
-  componentToShow = 'auth';
+  componentToShow?: string;
   incorrectUsernameOrPassword: Boolean = false;
   notAdmin = false;
   firstName: string = "";
@@ -32,6 +32,29 @@ export class AdminComponent {
 
   showComponent(componentName: string) {
     this.componentToShow = componentName
+  }
+
+  ngOnInit(): void {
+    this.checkLoginState();
+  }
+
+  checkLoginState(): void {
+    if (this.authService.isLoggedIn()) {
+      const user = this.authService.getLoggedInUser();
+      if (user) {
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.username = user.username;
+        this.id = user.id;
+        this.role = user.role;
+        this.componentToShow = 'dashboard';
+      }
+      if (user.role != 'admin') {
+        this.notAdmin = true;
+        this.componentToShow = 'auth';
+        return;
+      }
+    }
   }
 
   onLogin(input: any): void {

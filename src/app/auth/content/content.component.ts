@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RoomsFooterComponent } from '../../rooms/rooms-footer/rooms-footer.component';
 import { RoomsHeaderComponent } from '../../rooms/rooms-header/rooms-header.component';
 import { RouterOutlet } from '@angular/router';
@@ -27,7 +27,7 @@ import { ToastModule } from 'primeng/toast';
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
-export class ContentComponent {
+export class ContentComponent implements OnInit {
 
   componentToShow: string = "auth";
   incorrectUsernameOrPassword: boolean = false;

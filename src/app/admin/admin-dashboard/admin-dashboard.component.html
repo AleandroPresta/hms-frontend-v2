@@ -1,1 +1,58 @@
-<p>admin-dashboard works!</p>
+<div class="vh-100 d-flex flex-column">
+  <!-- Navigation bar -->
+  <nav class="bg-light border-bottom px-3 py-2 d-flex align-items-center justify-content-between">
+    <h1 class="h5 mb-0">Rooms Dashboard</h1>
+  </nav>
+
+  <div class="d-flex flex-grow-1 overflow-hidden">
+    <!-- Room list -->
+    <div class="border-end overflow-auto" style="width: 320px;">
+      <div class="list-group list-group-flush">
+        <a *ngFor="let room of rooms" 
+           (click)="selectRoom(room)"
+           class="list-group-item list-group-item-action py-3"
+           [class.active]="selectedRoom?.id === room.id">
+          <div class="d-flex gap-3 align-items-center">
+            <!-- Thumbnail image -->
+            <div style="width: 60px; height: 60px;" class="flex-shrink-0">
+              <img [src]="room.images[0]" 
+                   class="img-fluid rounded object-fit-cover w-100 h-100" 
+                   [alt]="room.name"
+                   onerror="this.src='assets/placeholder-image.jpg'">
+            </div>
+            <!-- Room name -->
+            <div class="flex-grow-1">
+              <h6 class="mb-0">{{room.name}}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Room content -->
+    <div class="flex-grow-1 overflow-auto">
+      <div *ngIf="selectedRoom; else noSelection" class="h-100">
+        <div class="d-flex flex-column h-100">
+          <div class="p-4 border-bottom">
+            <h4 class="mb-0">{{selectedRoom.name}}</h4>
+          </div>
+          <div class="p-4">
+            <div class="row g-4">
+              <div *ngFor="let image of selectedRoom.images" class="col-12 col-md-6 col-lg-4">
+                <img [src]="image" 
+                     [alt]="selectedRoom.name"
+                     class="img-fluid rounded shadow-sm w-100"
+                     style="height: 200px; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noSelection>
+        <div class="h-100 d-flex align-items-center justify-content-center text-muted">
+          Select a room to view details
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
