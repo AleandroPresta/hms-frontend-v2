@@ -16,7 +16,12 @@ export class RoomsService {
       type: 'Suite',
       capacity: 4,
       location: 'Galaxy Wing',
-      images: ['https://picsum.photos/seed/andromeda/800/600'],
+      images: ['https://picsum.photos/seed/andromeda1/800/600',
+        'https://picsum.photos/seed/andromeda2/800/600',
+        'https://picsum.photos/seed/andromeda3/800/600',
+        'https://picsum.photos/seed/andromeda4/800/600',
+        'https://picsum.photos/seed/andromeda5/800/600'
+      ],
       size: 100,
       features: ['King Bed', 'Galaxy View', 'Mini Bar'],
       bookings: [
@@ -42,7 +47,10 @@ export class RoomsService {
       type: 'Deluxe Room',
       capacity: 2,
       location: 'Orion Wing',
-      images: ['https://picsum.photos/seed/nebula/800/600'],
+      images: ['https://picsum.photos/seed/nebula/800/600',
+        'https://picsum.photos/seed/nebula2/800/600',
+        'https://picsum.photos/seed/nebula3/800/600'
+      ],
       size: 80,
       features: ['Queen Bed', 'Nebula View', 'Personal AI Assistant'],
       bookings: [
@@ -62,7 +70,10 @@ export class RoomsService {
       type: 'Suite',
       capacity: 5,
       location: 'Celestial Wing',
-      images: ['https://picsum.photos/seed/cosmic/800/600'],
+      images: ['https://picsum.photos/seed/cosmic/800/600',
+        'https://picsum.photos/seed/cosmic2/800/600',
+        'https://picsum.photos/seed/cosmic3/800/600'
+      ],
       size: 120,
       features: ['Two King Beds', '360° Space View', 'Holographic Entertainment System'],
       bookings: [
@@ -102,7 +113,10 @@ export class RoomsService {
       type: 'Suite',
       capacity: 3,
       location: 'Stellar Wing',
-      images: ['https://picsum.photos/seed/quasar/800/600'],
+      images: ['https://picsum.photos/seed/quasar/800/600',
+        'https://picsum.photos/seed/quasar2/800/600',
+        'https://picsum.photos/seed/quasar3/800/600'
+      ],
       size: 110,
       features: ['King Bed', 'Quasar View', 'Personal Robot Butler'],
       bookings: [
@@ -122,7 +136,10 @@ export class RoomsService {
       type: 'Economy Room',
       capacity: 1,
       location: 'Asteroid Wing',
-      images: ['https://picsum.photos/seed/meteorite/800/600'],
+      images: ['https://picsum.photos/seed/meteorite/800/600',
+        'https://picsum.photos/seed/meteorite2/800/600',
+        'https://picsum.photos/seed/meteorite3/800/600'
+      ],
       size: 40,
       features: ['Single Bed', 'Meteor Shower View', 'Basic Amenities'],
       bookings: [
@@ -142,7 +159,10 @@ export class RoomsService {
       type: 'Deluxe Room',
       capacity: 2,
       location: 'Comet Wing',
-      images: ['https://picsum.photos/seed/comet/800/600'],
+      images: ['https://picsum.photos/seed/comet/800/600',
+        'https://picsum.photos/seed/comet2/800/600',
+        'https://picsum.photos/seed/comet3/800/600'
+      ],
       size: 85,
       features: ['Queen Bed', 'Comet View', 'Advanced Climate Control'],
       bookings: [
@@ -162,7 +182,10 @@ export class RoomsService {
       type: 'Suite',
       capacity: 4,
       location: 'Supernova Wing',
-      images: ['https://picsum.photos/seed/nova/800/600'],
+      images: ['https://picsum.photos/seed/nova/800/600',
+        'https://picsum.photos/seed/nova2/800/600',
+        'https://picsum.photos/seed/nova3/800/600'
+      ],
       size: 130,
       features: ['King Bed', 'Supernova View', 'Luxury Spa'],
       bookings: [
@@ -182,7 +205,10 @@ export class RoomsService {
       type: 'Standard Room',
       capacity: 2,
       location: 'Event Horizon Wing',
-      images: ['https://picsum.photos/seed/blackhole/800/600'],
+      images: ['https://picsum.photos/seed/blackhole/800/600',
+        'https://picsum.photos/seed/blackhole2/800/600',
+        'https://picsum.photos/seed/blackhole3/800/600'
+      ],
       size: 75,
       features: ['Double Bed', 'Black Hole Simulation Window', 'Gravity Control'],
       bookings: [
@@ -202,7 +228,10 @@ export class RoomsService {
       type: 'Penthouse',
       capacity: 6,
       location: 'Pulsar Wing',
-      images: ['https://picsum.photos/seed/pulsar/800/600'],
+      images: ['https://picsum.photos/seed/pulsar/800/600',
+        'https://picsum.photos/seed/pulsar2/800/600',
+        'https://picsum.photos/seed/pulsar3/800/600'
+      ],
       size: 150,
       features: ['Three King Beds', 'Pulsar View', 'Private Gym'],
       bookings: [
