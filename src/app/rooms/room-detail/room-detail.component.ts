@@ -12,6 +12,8 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
 import { RoomsService } from '../rooms.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-room-detail',
@@ -26,7 +28,9 @@ import { RoomsService } from '../rooms.service';
     FontAwesomeModule,
     NgFor,
     AsyncPipe,
+    ToastModule
   ],
+  providers: [MessageService],
   templateUrl: './room-detail.component.html',
   styleUrl: './room-detail.component.css',
 })
@@ -43,7 +47,10 @@ export class RoomDetailComponent {
   faUsers = faUsers;
   faRulerCombined = faRulerCombined;
 
-  constructor(private router: ActivatedRoute, private roomsService: RoomsService) {
+  constructor(
+    private router: ActivatedRoute,
+    private roomsService: RoomsService,
+    private messageService: MessageService) {
     this.id$ = this.router.params.pipe(
       map(params => +params['id'])
     );
@@ -79,9 +86,20 @@ export class RoomDetailComponent {
     const isAvailable = this.roomsService.checkAvailable(roomId, checkInDate, checkOutDate);
     if (isAvailable) {
       this.roomsService.bookRoom(roomId, checkInDate, checkOutDate);
+      this.showSuccess('success', 'Booking Successful', 'You have successfully booked this room!');
     } else {
       this.roomNotAvailable = true;
     }
+  }
+
+  showSuccess(severity: string, summary: string, detail: string) {
+    this.messageService.add(
+      {
+        severity: severity,
+        summary: summary,
+        detail: detail,
+      }
+    );
   }
 
 }
