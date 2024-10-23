@@ -2,9 +2,9 @@
   "routes": [
     "/",
     "/about",
+    "/admin",
     "/auth",
     "/home",
-    "/rooms",
-    "/rooms/1"
+    "/rooms"
   ]
 }
