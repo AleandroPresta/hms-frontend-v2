@@ -1,76 +1,194 @@
 <div class="vh-100 d-flex flex-column">
-  <!-- Navigation bar -->
-  <nav class="bg-light border-bottom px-3 py-2 d-flex align-items-center justify-content-between">
-    <h1 class="h5 mb-0">Rooms Dashboard</h1>
-    <!-- Hamburger menu for mobile -->
-    <button class="btn d-lg-none" (click)="toggleSidebar()">
-      <fa-icon [icon]="faBars"></fa-icon>
-    </button>
-  </nav>
+    <!-- Navigation bar -->
+    <nav
+        class="bg-light border-bottom px-3 py-2 d-flex align-items-center justify-content-between"
+    >
+        <h1 class="h5 mb-0">Rooms Dashboard</h1>
+        <!-- Hamburger menu for mobile -->
+        <button class="btn d-lg-none" (click)="toggleSidebar()">
+            <fa-icon [icon]="faBars"></fa-icon>
+        </button>
+    </nav>
 
-  <div class="d-flex flex-grow-1 overflow-hidden">
-    <!-- Room list - hidden by default on mobile -->
-    <div class="border-end overflow-auto" 
-         [ngClass]="{'d-none d-lg-block': !isSidebarOpen}" 
-         style="width: 320px;">
-      <div class="list-group list-group-flush">
-        <a *ngFor="let room of rooms" 
-           (click)="selectRoom(room)"
-           class="list-group-item list-group-item-action py-3"
-           [class.active]="selectedRoom?.id === room.id">
-          <div class="d-flex gap-3 align-items-center">
-            <!-- Thumbnail image -->
-            <div style="width: 60px; height: 60px;" class="flex-shrink-0">
-              <img [src]="room.images[0]" 
-                   class="img-fluid rounded object-fit-cover w-100 h-100" 
-                   [alt]="room.name"
-                   onerror="this.src='assets/placeholder-image.jpg'">
+    <div class="d-flex flex-grow-1 overflow-hidden">
+        <!-- Room list - hidden by default on mobile -->
+        <div
+            class="border-end overflow-auto"
+            [ngClass]="{ 'd-none d-lg-block': !isSidebarOpen }"
+            style="width: 320px"
+        >
+            <div class="list-group list-group-flush">
+                <a
+                    *ngFor="let room of rooms"
+                    (click)="selectRoom(room)"
+                    class="list-group-item list-group-item-action py-3"
+                    [class.active]="selectedRoom?.id === room.id"
+                >
+                    <div class="d-flex gap-3 align-items-center">
+                        <!-- Thumbnail image -->
+                        <div
+                            style="width: 60px; height: 60px"
+                            class="flex-shrink-0"
+                        >
+                            <img
+                                [src]="room.images[0]"
+                                class="img-fluid rounded object-fit-cover w-100 h-100"
+                                [alt]="room.name"
+                                onerror="this.src='assets/placeholder-image.jpg'"
+                            />
+                        </div>
+                        <!-- Room name -->
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0">{{ room.name }}</h6>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <!-- Room name -->
-            <div class="flex-grow-1">
-              <h6 class="mb-0">{{room.name}}</h6>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+        </div>
 
-    <!-- Room content -->
-    <div class="flex-grow-1 overflow-auto bg-light">
-      <div *ngIf="selectedRoom; else noSelection" class="h-100">
-        <div class="d-flex flex-column h-100">
-          <div class="p-4 border-bottom">
-            <!-- Back button for mobile -->
-            <button *ngIf="isSidebarOpen" 
-                    class="btn btn-sm btn-outline-secondary mb-3 d-lg-none"
-                    (click)="toggleSidebar()">
-              <fa-icon [icon]="faArrowLeft"></fa-icon> Back to list
-            </button>
-            <h4 class="mb-0">{{selectedRoom.name}}</h4>
-          </div>
-          <div class="p-4">
-            <div class="row g-4">
-              <div *ngFor="let image of selectedRoom.images" 
-                   class="col-12 col-sm-6 col-xl-4">
-                <img [src]="image" 
-                     [alt]="selectedRoom.name"
-                     class="img-fluid rounded shadow-sm w-100"
-                     style="height: 200px; object-fit: cover;">
-              </div>
+        <!-- Room content -->
+        <div class="flex-grow-1 overflow-auto bg-light">
+            <div *ngIf="selectedRoom; else noSelection" class="h-100">
+                <div class="d-flex flex-column h-100">
+                    <div class="p-4 border-bottom">
+                        <!-- Back button for mobile -->
+                        <button
+                            *ngIf="isSidebarOpen"
+                            class="btn btn-sm btn-outline-secondary mb-3 d-lg-none"
+                            (click)="toggleSidebar()"
+                        >
+                            <fa-icon [icon]="faArrowLeft"></fa-icon> Back to
+                            list
+                        </button>
+                        <h4 class="mb-0">{{ selectedRoom.name }}</h4>
+                    </div>
+                    <div class="p-4">
+                        <div class="row g-4">
+                            <div
+                                *ngFor="let image of selectedRoom.images"
+                                class="col-12 col-sm-6 col-xl-4"
+                            >
+                                <img
+                                    [src]="image"
+                                    [alt]="selectedRoom.name"
+                                    class="img-fluid rounded shadow-sm w-100"
+                                    style="height: 200px; object-fit: cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="p-4">
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>ID:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.id }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Name:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.name }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Type:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.type }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Capacity:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.capacity }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Location:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.location }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Size:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.size }} sq ft
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Features:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.features.join(", ") }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Price:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    ${{ selectedRoom.price }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Rating:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    {{ selectedRoom.rating }} / 5
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-4">
+                                    <strong>Bookings:</strong>
+                                </div>
+                                <div class="col-6 col-md-8">
+                                    <ul class="list-unstyled mb-0">
+                                        <li
+                                            *ngFor="
+                                                let booking of selectedRoom.bookings
+                                            "
+                                        >
+                                            {{ booking.startDate | date }} -
+                                            {{ booking.endDate | date }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <ng-template #noSelection>
+                <div
+                    class="h-100 d-flex align-items-center justify-content-center text-muted"
+                >
+                    <div class="text-center">
+                        <p class="mb-0 d-none d-lg-block">
+                            Select a room to view details
+                        </p>
+                        <button
+                            class="btn btn-primary d-lg-none"
+                            (click)="toggleSidebar()"
+                        >
+                            Select a Room
+                        </button>
+                    </div>
+                </div>
+            </ng-template>
         </div>
-      </div>
-      <ng-template #noSelection>
-        <div class="h-100 d-flex align-items-center justify-content-center text-muted">
-          <div class="text-center">
-            <p class="mb-0 d-none d-lg-block">Select a room to view details</p>
-            <button class="btn btn-primary d-lg-none" (click)="toggleSidebar()">
-              Select a Room
-            </button>
-          </div>
-        </div>
-      </ng-template>
     </div>
-  </div>
 </div>
