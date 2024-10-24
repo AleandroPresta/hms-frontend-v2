@@ -1,0 +1,35 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Existing scrollbar styles... */
+
+/* Add smooth transitions */
+.border-end {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+    .border-end {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: white;
+        z-index: 1000;
+    }
+}
