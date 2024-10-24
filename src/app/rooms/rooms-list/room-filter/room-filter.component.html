@@ -1,0 +1,79 @@
+<div class="container-fluid py-3 bg-light border-bottom">
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+        <div class="row g-3">
+            <!-- Room Type Filter -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label">Room Type</label>
+                <select class="form-select" formControlName="type">
+                    <option value="">All Types</option>
+                    <option *ngFor="let type of roomTypes" value="{{type}}">{{type}}</option>
+                </select>
+            </div>
+
+            <!-- Capacity Filter -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label">Capacity</label>
+                <select class="form-select" formControlName="capacity">
+                    <option value="">Any Capacity</option>
+                    <option *ngFor="let i of getRange(maxCapacity)" value="{{i}}">{{i}} Person</option>
+                </select>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label">Location</label>
+                <select class="form-select" formControlName="location">
+                    <option value="">Any Location</option>
+                    <option *ngFor="let location of roomLocations" value="{{location}}">{{location}}</option>
+                </select>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <label class="form-label">Price Range</label>
+                <select class="form-select" formControlName="priceRange">
+                    <option value="">Any Price</option>
+                    <option value="budget">$0 - $100</option>
+                    <option value="mid">$100 - $200</option>
+                    <option value="luxury">$200+</option>
+                </select>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="col-12 col-md-6">
+                <label class="form-label">Minimum Rating</label>
+                <select class="form-select" formControlName="minRating">
+                    <option value="">Any Rating</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+            </div>
+
+            <!-- Size Filter -->
+            <div class="col-12 col-md-6">
+                <label class="form-label">Room Size</label>
+                <select class="form-select" formControlName="size">
+                    <option value="">Any Size</option>
+                    <option value="small">Small (< 30m²)</option>
+                    <option value="medium">Medium (30-50m²)</option>
+                    <option value="large">Large (> 50m²)</option>
+                </select>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="col-12 mt-3 d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    Apply Filters
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="resetFilters()"
+                >
+                    Reset
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
