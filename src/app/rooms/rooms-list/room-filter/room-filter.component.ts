@@ -32,11 +32,6 @@ export class RoomFilterComponent implements OnInit {
       capacity: [''],
       location: [''],
       priceRange: [''],
-      features: this.fb.group({
-        wifi: [false],
-        balcony: [false],
-        minibar: [false]
-      }),
       minRating: [''],
       size: ['']
     });
