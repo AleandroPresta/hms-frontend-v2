@@ -13,6 +13,19 @@ export class RoomFilterService {
     'Penthouse'
   ];
 
+  roomLocations: string[] = [
+    'Galaxy Wing',
+    'Orion Wing',
+    'Celestial Wing',
+    'Lunar Wing',
+    'Stellar Wing',
+    'Asteroid Wing',
+    'Comet Wing',
+    'Supernova Wing',
+    'Event Horizon Wing',
+    'Pulsar Wing'
+  ];
+
   maxCapacity = 10;
 
   constructor() { }
@@ -23,5 +36,9 @@ export class RoomFilterService {
 
   getMaxCapacity(): number {
     return this.maxCapacity;
+  }
+
+  getRoomLocations(): string[] {
+    return this.roomLocations;
   }
 }

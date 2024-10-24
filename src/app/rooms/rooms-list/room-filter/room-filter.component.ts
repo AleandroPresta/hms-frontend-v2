@@ -21,6 +21,7 @@ export class RoomFilterComponent implements OnInit {
 
   roomTypes: string[] = [];
   maxCapacity: number = 0;
+  roomLocations: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -44,6 +45,7 @@ export class RoomFilterComponent implements OnInit {
   ngOnInit(): void {
     this.roomTypes = this.roomFilterService.getRoomTypes();
     this.maxCapacity = this.roomFilterService.getMaxCapacity();
+    this.roomLocations = this.roomFilterService.getRoomLocations();
   }
 
   applyFilters() {

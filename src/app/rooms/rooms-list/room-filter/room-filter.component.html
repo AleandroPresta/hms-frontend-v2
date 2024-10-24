@@ -6,7 +6,7 @@
                 <label class="form-label">Room Type</label>
                 <select class="form-select" formControlName="type">
                     <option value="">All Types</option>
-                    <option *ngFor="let type of roomTypes" value="{{type.toLowerCase()}}">{{type}}</option>
+                    <option *ngFor="let type of roomTypes" value="{{type}}">{{type}}</option>
                 </select>
             </div>
 
@@ -24,9 +24,7 @@
                 <label class="form-label">Location</label>
                 <select class="form-select" formControlName="location">
                     <option value="">Any Location</option>
-                    <option value="beachfront">Beachfront</option>
-                    <option value="city-view">City View</option>
-                    <option value="garden">Garden View</option>
+                    <option *ngFor="let location of roomLocations" value="{{location}}">{{location}}</option>
                 </select>
             </div>
 
@@ -36,47 +34,9 @@
                 <select class="form-select" formControlName="priceRange">
                     <option value="">Any Price</option>
                     <option value="budget">$0 - $100</option>
-                    <option value="mid">$101 - $200</option>
-                    <option value="luxury">$201+</option>
+                    <option value="mid">$100 - $200</option>
+                    <option value="luxury">$200+</option>
                 </select>
-            </div>
-
-            <!-- Features Filter -->
-            <div class="col-12">
-                <label class="form-label">Features</label>
-                <div class="d-flex flex-wrap gap-2" formGroupName="features">
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            formControlName="wifi"
-                            id="wifi"
-                        />
-                        <label class="form-check-label" for="wifi">WiFi</label>
-                    </div>
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            formControlName="balcony"
-                            id="balcony"
-                        />
-                        <label class="form-check-label" for="balcony"
-                            >Balcony</label
-                        >
-                    </div>
-                    <div class="form-check">
-                        <input
-                            class="form-check-input"
-                            type="checkbox"
-                            formControlName="minibar"
-                            id="minibar"
-                        />
-                        <label class="form-check-label" for="minibar"
-                            >Minibar</label
-                        >
-                    </div>
-                </div>
             </div>
 
             <!-- Rating Filter -->
