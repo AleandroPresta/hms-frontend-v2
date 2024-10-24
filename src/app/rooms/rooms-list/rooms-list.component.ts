@@ -4,6 +4,7 @@ import { RoomsSearchComponent } from '../rooms-search/rooms-search.component';
 import { RoomPreviewComponent } from "../room-preview/room-preview.component";
 import { NgClass, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { RoomFilterComponent } from "./room-filter/room-filter.component";
 
 @Component({
   selector: 'app-rooms-list',
@@ -12,7 +13,8 @@ import { RouterLink } from '@angular/router';
     RoomsSearchComponent,
     RoomPreviewComponent,
     NgFor, NgClass,
-    RouterLink
+    RouterLink,
+    RoomFilterComponent
   ],
   templateUrl: './rooms-list.component.html',
   styleUrl: './rooms-list.component.css'
