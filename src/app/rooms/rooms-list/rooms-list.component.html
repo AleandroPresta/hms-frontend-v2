@@ -5,6 +5,7 @@
                 <app-room-filter (filterChange)="applyFilters($event)"></app-room-filter>
             </div>
         <div class="row">
+            <h3 class="col-12 text-center my-3" *ngIf="roomList.length === 0">Rooms not found</h3>
             <div class="col-12 col-lg-6" *ngFor="let room of roomList; let i = index">
                 <a class="text-decoration-none" [routerLink]="['/rooms', room.id]"> <!-- Mocks the room:id route (TODO: Implement dynamic routing) -->
                     <app-room-preview [room]="room" class="m-2" [ngClass]="{'scroll-reveal-down': i > 1}"></app-room-preview>
