@@ -25,6 +25,10 @@ export class AdminDashboardComponent implements OnInit {
   selectedRoom: Room | null = null;
   newName: string = '';
   newType: string = '';
+  newCapacity: number = 0;
+  newSize: number = 0;
+  newPrice: number = 0;
+  newRating: number = 0;
 
   roomTypes: string[] = [];
 
@@ -53,6 +57,10 @@ export class AdminDashboardComponent implements OnInit {
     // Reset form
     this.newName = this.selectedRoom.name;
     this.newType = this.selectedRoom.type;
+    this.newCapacity = this.selectedRoom.capacity;
+    this.newSize = this.selectedRoom.size;
+    this.newPrice = this.selectedRoom.price;
+    this.newRating = this.selectedRoom.rating;
   }
 
   toggleSidebar(): void {
@@ -64,5 +72,9 @@ export class AdminDashboardComponent implements OnInit {
     console.log(`id: ${this.selectedRoom?.id}`);
     console.log(`name: ${this.newName}`);
     console.log(`type: ${this.newType}`);
+    console.log(`capacity: ${this.newCapacity}`);
+    console.log(`size: ${this.newSize}`);
+    console.log(`price: ${this.newPrice}`);
+    console.log(`rating: ${this.newRating}`);
   }
 }
