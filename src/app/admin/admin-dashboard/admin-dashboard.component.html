@@ -77,97 +77,20 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div class="p-4">
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>ID:</strong>
+                    <div class="row">
+                        <div class="col-12 p-5">
+                            <form (ngSubmit)="submitRoom()">
+                                <div class="mb-3">
+                                    <label class="form-label">ID</label>
+                                    <input
+                                        type="text"
+                                        class="form-control mb-3"
+                                        [value]="selectedRoom.id"
+                                        readonly
+                                    />
                                 </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.id }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Name:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.name }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Type:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.type }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Capacity:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.capacity }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Location:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.location }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Size:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.size }} sq ft
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Features:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.features.join(", ") }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Price:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    ${{ selectedRoom.price }}
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Rating:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    {{ selectedRoom.rating }} / 5
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6 col-md-4">
-                                    <strong>Bookings:</strong>
-                                </div>
-                                <div class="col-6 col-md-8">
-                                    <ul class="list-unstyled mb-0">
-                                        <li
-                                            *ngFor="
-                                                let booking of selectedRoom.bookings
-                                            "
-                                        >
-                                            {{ booking.startDate | date }} -
-                                            {{ booking.endDate | date }}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                                <div><button class="btn btn-primary" type="submit">Submit</button></div>
+                            </form>
                         </div>
                     </div>
                 </div>

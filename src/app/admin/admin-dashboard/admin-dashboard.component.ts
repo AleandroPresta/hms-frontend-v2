@@ -5,6 +5,7 @@ import { Room } from '../../rooms/Room';
 import { AdminRoomPreviewComponent } from "../admin-room-preview/admin-room-preview.component";
 import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -12,7 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     AdminRoomPreviewComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
@@ -43,5 +45,10 @@ export class AdminDashboardComponent implements OnInit {
 
   toggleSidebar(): void {
     this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  submitRoom() {
+    console.log('Room submitted');
+    console.log(this.selectedRoom);
   }
 }
