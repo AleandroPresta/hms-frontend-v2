@@ -1,11 +1,6 @@
 <div class="container-fluid p-0 vh-100">
-    <app-admin-login-form
-        *ngIf="componentToShow == 'auth'"
-        class="container d-flex justify-content-center align-items-center bg-light-subtle vh-100 rounded-2"
-        (onSubmitLoginEvent)="onLogin($event)"
-        [incorrectUsernameOrPassword]="incorrectUsernameOrPassword"
-        [notAdmin]="notAdmin"
-    ></app-admin-login-form>
+    <h1 class="text-light text-center vh-100 d-flex justify-content-center align-items-center" *ngIf="componentToShow == 'not-admin'">The user doesn't have the right permissions</h1>
+    <app-loading *ngIf="componentToShow == 'loading'"></app-loading>
     <app-admin-dashboard
         *ngIf="componentToShow == 'dashboard'"
         class="h-100 d-block"
