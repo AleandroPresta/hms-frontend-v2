@@ -68,13 +68,25 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   submitRoom() {
-    console.log('Room submitted');
-    console.log(`id: ${this.selectedRoom?.id}`);
-    console.log(`name: ${this.newName}`);
-    console.log(`type: ${this.newType}`);
-    console.log(`capacity: ${this.newCapacity}`);
-    console.log(`size: ${this.newSize}`);
-    console.log(`price: ${this.newPrice}`);
-    console.log(`rating: ${this.newRating}`);
+    if (!this.selectedRoom) {
+      throw new Error('No room selected');
+    } else {
+      this.roomsService.modifyRoom({
+        id: this.selectedRoom.id,
+        name: this.newName,
+        type: this.newType,
+        capacity: this.newCapacity,
+        location: this.selectedRoom.location,
+        images: this.selectedRoom.images,
+        size: this.newSize,
+        features: this.selectedRoom.features,
+        bookings: this.selectedRoom.bookings,
+        price: this.newPrice,
+        rating: this.newRating
+      });
+
+      // Update the room list
+      this.rooms = this.roomsService.getRooms();
+    }
   }
 }

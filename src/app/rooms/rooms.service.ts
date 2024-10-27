@@ -252,6 +252,15 @@ export class RoomsService {
     return this.mockRooms;
   }
 
+  modifyRoom(room: Room): void {
+    const roomIndex: number = this.mockRooms.findIndex((r) => r.id === room.id);
+    if (roomIndex === -1) {
+      throw new Error(`Room with ID ${room.id} not found`);
+    }
+
+    this.mockRooms[roomIndex] = room;
+  }
+
   getRoomById(id: number): Room {
     const room: Room | undefined = this.mockRooms.find((room) => {
       return room.id === id;
