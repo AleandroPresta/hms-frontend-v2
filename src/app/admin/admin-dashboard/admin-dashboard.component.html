@@ -89,6 +89,16 @@
                                         readonly
                                     />
                                 </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control mb-3"
+                                        [value]="newName"
+                                        [(ngModel)]="newName"
+                                        name="newName"
+                                    />
+                                </div>
                                 <div><button class="btn btn-primary" type="submit">Submit</button></div>
                             </form>
                         </div>
