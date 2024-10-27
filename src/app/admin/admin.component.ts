@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
+import { LoadingComponent } from "./loading/loading.component";
 
 @Component({
   selector: 'app-admin',
   standalone: true,
   imports: [
     NgIf,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    LoadingComponent
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
