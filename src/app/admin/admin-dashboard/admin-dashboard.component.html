@@ -77,109 +77,107 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 p-5">
-                            <form (ngSubmit)="submitRoom()">
-                                <div class="mb-3">
-                                    <label class="form-label">ID</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        [value]="selectedRoom.id"
-                                        readonly
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        [value]="newName"
-                                        [(ngModel)]="newName"
-                                        name="newName"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Type</label>
-                                    <select
-                                        class="form-control"
-                                        [value]="newType"
-                                        [(ngModel)]="newType"
-                                        name="newType"
-                                    >
-                                        <option
-                                            *ngFor="let type of roomTypes"
-                                            [value]="type"
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-xl-8 p-5 mx-auto">
+                                <form (ngSubmit)="submitRoom()">
+                                    <div class="mb-3">
+                                        <label class="form-label">ID</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            [value]="selectedRoom.id"
+                                            readonly
+                                        />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            [value]="newName"
+                                            [(ngModel)]="newName"
+                                            name="newName"
+                                        />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Type</label>
+                                        <select
+                                            class="form-control"
+                                            [value]="newType"
+                                            [(ngModel)]="newType"
+                                            name="newType"
                                         >
-                                            {{ type }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Capacity</label>
-                                    <div class="input-group">
+                                            <option
+                                                *ngFor="let type of roomTypes"
+                                                [value]="type"
+                                            >
+                                                {{ type }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Capacity</label>
                                         <input
                                             type="number"
                                             class="form-control"
                                             [value]="newCapacity"
                                             [(ngModel)]="newCapacity"
                                             name="newCapacity"
-                                            aria-describedby="basic-addon1"
                                         />
-                                        <span class="input-group-text" id="basic-addon1">People</span>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Size</label>
-                                    <div class="input-group">
-                                        <input
-                                            type="number"
-                                            class="form-control"
-                                            [value]="newSize"
-                                            [(ngModel)]="newSize"
-                                            name="newSize"
-                                            aria-describedby="basic-addon2"
-                                        />
-                                        <span class="input-group-text" id="basic-addon2">m²</span>
+                                    <div class="mb-3">
+                                        <label class="form-label">Size</label>
+                                        <div class="input-group">
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                [value]="newSize"
+                                                [(ngModel)]="newSize"
+                                                name="newSize"
+                                                aria-describedby="basic-addon2"
+                                            />
+                                            <span class="input-group-text" id="basic-addon2">m²</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Price</label>
-                                    <div class="input-group">
-                                        <input
-                                            type="number"
-                                            class="form-control"
-                                            [value]="newPrice"
-                                            [(ngModel)]="newPrice"
-                                            name="newPrice"
-                                            aria-describedby="basic-addon3"
-                                        />
-                                        <span class="input-group-text" id="basic-addon3">€</span>
+                                    <div class="mb-3">
+                                        <label class="form-label">Price</label>
+                                        <div class="input-group">
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                [value]="newPrice"
+                                                [(ngModel)]="newPrice"
+                                                name="newPrice"
+                                                aria-describedby="basic-addon3"
+                                            />
+                                            <span class="input-group-text" id="basic-addon3">€</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Rating</label>
-                                    <div class="input-group">
-                                        <input
-                                            type="number"
-                                            class="form-control"
-                                            [value]="newRating"
-                                            [(ngModel)]="newRating"
-                                            name="newRating"
-                                            aria-describedby="basic-addon4"
-                                        />
-                                        <span class="input-group-text" id="basic-addon4">☆</span>
+                                    <div class="mb-3">
+                                        <label class="form-label">Rating</label>
+                                        <div class="input-group">
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                [value]="newRating"
+                                                [(ngModel)]="newRating"
+                                                name="newRating"
+                                                aria-describedby="basic-addon4"
+                                            />
+                                            <span class="input-group-text" id="basic-addon4">☆</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <button
-                                        class="btn btn-primary"
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </button>
-                                </div>
-                            </form>
+                                    <div>
+                                        <button
+                                            class="btn btn-primary"
+                                            type="submit"
+                                        >
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
