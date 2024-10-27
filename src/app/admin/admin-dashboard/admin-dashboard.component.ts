@@ -6,6 +6,7 @@ import { AdminRoomPreviewComponent } from "../admin-room-preview/admin-room-prev
 import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, NgModel } from '@angular/forms';
+import { RoomFilterService } from '../../rooms/rooms-list/room-filter.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -23,18 +24,23 @@ export class AdminDashboardComponent implements OnInit {
   rooms: Room[] = [];
   selectedRoom: Room | null = null;
   newName: string = '';
+  newType: string = '';
+
+  roomTypes: string[] = [];
 
   isSidebarOpen = false;
 
   faBars = faBars;
   faArrowLeft = faArrowLeft;
 
-  constructor(private roomsService: RoomsService) { }
+  constructor(private roomsService: RoomsService, private roomFilterService: RoomFilterService) { }
 
   ngOnInit(): void {
     this.rooms = this.roomsService.getRooms();
     // On larger screens, show sidebar by default
     this.isSidebarOpen = window.innerWidth >= 992;
+
+    this.roomTypes = this.roomFilterService.getRoomTypes()
   }
 
   selectRoom(room: Room): void {
@@ -46,6 +52,7 @@ export class AdminDashboardComponent implements OnInit {
 
     // Reset form
     this.newName = this.selectedRoom.name;
+    this.newType = this.selectedRoom.type;
   }
 
   toggleSidebar(): void {
@@ -56,5 +63,6 @@ export class AdminDashboardComponent implements OnInit {
     console.log('Room submitted');
     console.log(`id: ${this.selectedRoom?.id}`);
     console.log(`name: ${this.newName}`);
+    console.log(`type: ${this.newType}`);
   }
 }

@@ -99,7 +99,30 @@
                                         name="newName"
                                     />
                                 </div>
-                                <div><button class="btn btn-primary" type="submit">Submit</button></div>
+                                <div class="mb-3">
+                                    <label class="form-label">Type</label>
+                                    <select
+                                        class="form-control mb-3"
+                                        [value]="newType"
+                                        [(ngModel)]="newType"
+                                        name="newType"
+                                    >
+                                        <option
+                                            *ngFor="let type of roomTypes"
+                                            [value]="type"
+                                        >
+                                            {{ type }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button
+                                        class="btn btn-primary"
+                                        type="submit"
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
