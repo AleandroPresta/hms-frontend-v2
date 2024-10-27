@@ -1,0 +1,13 @@
+<div
+    class="d-flex justify-content-center align-items-center"
+    [ngStyle]="{ height: height }"
+>
+    <div
+        class="spinner-border text-primary"
+        role="status"
+        [ngStyle]="{ width: size, height: size }"
+    >
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <span *ngIf="showText" class="ms-2">{{ text }}</span>
+</div>
