@@ -1,5 +1,6 @@
 <div class="container-fluid p-0 vh-100">
-    <app-loading></app-loading>
+    <h1 class="text-light text-center vh-100 d-flex justify-content-center align-items-center" *ngIf="componentToShow == 'not-admin'">The user doesn't have the right permissions</h1>
+    <app-loading *ngIf="componentToShow == 'loading'"></app-loading>
     <app-admin-dashboard
         *ngIf="componentToShow == 'dashboard'"
         class="h-100 d-block"
