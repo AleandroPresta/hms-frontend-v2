@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../Room';
 import { FormsModule } from '@angular/forms';
-import { NgIf, DatePipe } from '@angular/common';
+import { NgIf, DatePipe, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-rooms-search',
@@ -40,6 +40,8 @@ export class RoomsSearchComponent implements OnInit {
     price: 0,
     rating: 0
   }
+
+  constructor(private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
     this.setMinMaxDates();
@@ -96,6 +98,8 @@ export class RoomsSearchComponent implements OnInit {
       console.log('Form submitted');
       console.table(this.searchedRoom);
       this.searchRooms(this.searchedRoom);
+      // Scroll to Component2 by ID
+      this.viewportScroller.scrollToAnchor('component2');
     } else {
       console.log('Invalid date range');
     }
