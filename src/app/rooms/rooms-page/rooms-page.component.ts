@@ -23,4 +23,8 @@ export class RoomsPageComponent implements OnInit {
     this.roomList = this.roomsService.mockRooms;
   }
 
+  searchRoomsEvent(event: any) {
+    this.roomList = this.roomsService.getRoomByBookingRange(event.startDate, event.endDate)
+  }
+
 }

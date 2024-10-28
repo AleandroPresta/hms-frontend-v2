@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Room } from '../Room';
 import { FormsModule } from '@angular/forms';
-import { NgIf, DatePipe } from '@angular/common';
+import { NgIf, DatePipe, ViewportScroller } from '@angular/common';
+import { min } from 'rxjs';
 
 @Component({
   selector: 'app-rooms-search',
@@ -40,6 +41,10 @@ export class RoomsSearchComponent implements OnInit {
     price: 0,
     rating: 0
   }
+
+  @Output() searchRoomsEvent = new EventEmitter<Date[]>();
+
+  constructor(private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
     this.setMinMaxDates();
@@ -93,15 +98,15 @@ export class RoomsSearchComponent implements OnInit {
 
   onSubmit() {
     if (this.isCheckOutDateValid()) {
-      console.log('Form submitted');
-      console.table(this.searchedRoom);
-      this.searchRooms(this.searchedRoom);
+      this.searchRooms(this.minDate, this.maxDate);
+      // Scroll to Component2 by ID
+      this.viewportScroller.scrollToAnchor('component2');
     } else {
       console.log('Invalid date range');
     }
   }
 
-  searchRooms(room: Room) {
-    // TODO implement
+  searchRooms(minDate: Date, maxDate: Date) {
+    this.searchRoomsEvent.emit([minDate, maxDate]);
   }
 }
